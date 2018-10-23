@@ -1,2 +1,2 @@
 # hangman
-Висельница - игра на javascript
+Виселица - игра на javascript
