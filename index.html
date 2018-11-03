@@ -35,7 +35,6 @@
         var slovo = a[Math.floor(Math.random() * a.length)];
         var a1 = slovo[0];
         var podskazka = slovo[1];
-
         var b = [];
         for (var i = 0; i < a1.length; i++) {
             b[i] = "_ ";
@@ -43,6 +42,7 @@
 
         var c = a1.length;
         var aa = 0
+		var XLaa=a1.length + 2
         var aa1 = prompt("Как вас зовут?")
         alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + a1.length + " букв")
         while (c > 0 && aa < a1.length + 2) {
@@ -56,7 +56,6 @@
             } else if (d1.length !== 1 && d1 !== a1) {
                 alert("Пожалуйста, введите одиночную букву.");
             } else if (d1 === a1) {
-                //c-a1.length;
                 break;
             } else {
                 for (var j = 0; j < a1.length; j++) {
@@ -70,14 +69,22 @@
                 aa++;
             }
         }
-        //var b1=b.toLowerCase();
         var str = b.join('');
 
         if (str.toLowerCase() !== a1.toLowerCase() && d1.toLowerCase() !== a1.toLowerCase()) {
             alert("К сожалению,вы проиграли. Попрбуйте ещё раз. Было загадано слово " + a1)
         } else {
-            alert("Поздравляю с победой, " + aa1 + "! Было загадано слово " + a1);
+		var o=XLaa-aa
+		var oo=o+1
+        var ooo=oo+1
+        if (aa1==="12345"){
+		alert("Поздравляю с победой, " + aa1 + "! Было загадано слово " + a1+".\n Вы набрали "+oo+" очков!")
+		}else if(aa1==="=^.^="){
+		alert("Поздравляю с победой, " + aa1 + "! Было загадано слово " + a1+".\n Вы набрали "+ooo+" очков!")
+		}else{
+        alert("Поздравляю с победой, " + aa1 + "! Было загадано слово " + a1+".\n Вы набрали "+o+" очков!");
         }
+	}
     </script>
 </body>
 
