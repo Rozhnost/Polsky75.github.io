@@ -1,6 +1,4 @@
-	
-		
-		<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -91,20 +89,20 @@ var aaa1 = [];
         while (c > 0 && aa < a1.length + 2) {
 
             alert(b.join(""));
-
             var d = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
-            var d1 = d.toLowerCase();
-            if (d1 === null) {
+            if (d === null) {
+			var rrr="Вы вышли из игры. До новых встреч!"
+			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
                 break;
-            } else if (d1.length !== 1 && d1 !== a1) {
+            } else if (d.length !== 1 && d.toLowerCase() !== a1) {
                 alert("Пожалуйста, введите одиночную букву.");
-            } else if (d1 === a1) {
+            } else if (d.toLowerCase() === a1) {
                 break;
             } else {
                 for (var j = 0; j < a1.length; j++) {
 
-                    if (a1[j] === d1 && b[j] === "_ ") {
-                        b[j] = d1.toLowerCase();
+                    if (a1[j] === d.toLowerCase() && b[j] === "_ ") {
+                        b[j] = d.toLowerCase();
                         c--;
                     }
 
@@ -114,7 +112,7 @@ var aaa1 = [];
         }
         var str = b.join('');
 
-        if (str.toLowerCase() !== a1.toLowerCase() && d1.toLowerCase() !== a1.toLowerCase()) {
+        if (str.toLowerCase() !== a1.toLowerCase() && d.toLowerCase() !== a1.toLowerCase()) {
          var rr= "К сожалению,вы проиграли. Попрбуйте ещё раз. Было загадано слово "+ a1+". "
 		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
