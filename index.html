@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -46,8 +47,8 @@ table.gridtable td {
 	var now = new Date();
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
 var aaa1 = [];	
-
         var a = [
+            ["арбуз","Сам алый, сахарный, \nКафтан зеленый, бархатный."]
             ["программа", "достижение 20 века"],
             ["мартышка", "У нее были очки"],
             ["оладушек", "Не блинчик :)"],
@@ -68,9 +69,9 @@ var aaa1 = [];
             ["ковер", "Я и дом украшаю,\nЯ и пыль собираю.\nА меня люди топчут ногами,\nДа потом ещё бьют батогами."],
             ["время", "Без ног и без крыльев оно,\nБыстро летит, не догонишь его."],
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."]
-			
+            ["одуванчик","Рос шар бел, \nВетер дунул — улетел. "]
+			["сова","Всю ночь летает – мышей добывает. \nА станет светло – спать летит в дупло."]
         ];
-
         var slovo = a[Math.floor(Math.random() * a.length)];
         var a1 = slovo[0];
         var podskazka = slovo[1];
@@ -79,7 +80,6 @@ var aaa1 = [];
         for (var i = 0; i < a1.length; i++) {
             b[i] = "_ ";
         }
-
         var c = a1.length;
         var aa = 0
 		var XLaa=a1.length + 2
@@ -87,7 +87,6 @@ var aaa1 = [];
 		var aaa=aa1.length
         alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + a1.length + " букв")
         while (c > 0 && aa < a1.length + 2) {
-
             alert(b.join(""));
             var d = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
             if (d === null) {
@@ -100,18 +99,15 @@ var aaa1 = [];
                 break;
             } else {
                 for (var j = 0; j < a1.length; j++) {
-
                     if (a1[j] === d.toLowerCase() && b[j] === "_ ") {
                         b[j] = d.toLowerCase();
                         c--;
                     }
-
                 }
                 aa++;
             }
         }
         var str = b.join('');
-
         if (str.toLowerCase() !== a1.toLowerCase() && d.toLowerCase() !== a1.toLowerCase()) {
          var rr= "К сожалению,вы проиграли. Попрбуйте ещё раз. Было загадано слово "+ a1+". "
 		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
