@@ -1,4 +1,50 @@
-var now = new Date();
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Виселица!</title>
+	<style>table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}</style>
+</head>
+
+<body>
+    <h1 id="x"></h1>
+	<h1 id="y"></h1>
+    <h1 id="z"></h1>	
+  
+	<div id="content"></div>
+	
+	
+	
+	
+</body>
+
+  <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+	
+	tById("content").appendChild(buildTable(aaa1));
+	var now = new Date();
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
 var aaa1 = [];	
         var a = [
@@ -29,7 +75,7 @@ var aaa1 = [];
         var pick = function() {
         [Math.floor(Math.random() * a.length)];
         }
-        var ste = pick()
+        var slovo = pick()
         var a1 = slovo[0];
         var podskazka = slovo[1];
          var b = [];
@@ -117,3 +163,9 @@ var aaa1 = [];
     table.appendChild(tbody);             
     return table;
 }
+//java.io.File f = new java.io.File(aaa1)	
+	
+		document.getElemen
+	</script>
+	
+</html>
