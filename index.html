@@ -1,55 +1,9 @@
-    
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Виселица!</title>
-	<style>table.gridtable {
-	font-family: verdana,arial,sans-serif;
-	font-size:11px;
-	color:#333333;
-	border-width: 1px;
-	border-color: #666666;
-	border-collapse: collapse;
-}
-table.gridtable th {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #666666;
-	background-color: #dedede;
-}
-table.gridtable td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #666666;
-	background-color: #ffffff;
-}</style>
-</head>
-
-<body>
-    <h1 id="x"></h1>
-	<h1 id="y"></h1>
-    <h1 id="z"></h1>	
-  
-	<div id="content"></div>
-	
-	
-	
-	
-</body>
-
-  <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-	<script>
-	
-	var now = new Date();
+var now = new Date();
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
 var aaa1 = [];	
         var a = [
             ["арбуз","Сам алый, сахарный, \nКафтан зеленый, бархатный."],
-            ["программа", "достижение 20 века"],
+            ["программа","достижение 20 века"],
             ["мартышка", "У нее были очки"],
             ["оладушек", "Не блинчик :)"],
             ["кошка", "она гуляет сама по себе"],
@@ -70,21 +24,22 @@ var aaa1 = [];
             ["время", "Без ног и без крыльев оно,\nБыстро летит, не догонишь его."],
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
             ["одуванчик","Рос шар бел, \nВетер дунул — улетел. "],
-	    ["сова","Всю ночь летает – мышей добывает. \nА станет светло – спать летит в дупло."]
+			["сова","Всю ночь летает – мышей добывает. \nА станет светло – спать летит в дупло."]
         ];
-       var pikachu = function(){
-        [Math.floor(Math.random() * a.length)]
-       }
-        var slovo = pikachu()  
+        var pick = function() {
+        [Math.floor(Math.random() * a.length)];
+        }
+        var ste = pick()
         var a1 = slovo[0];
         var podskazka = slovo[1];
          var b = [];
         var setup = function(word){
         for (var i = 0; i < word.length; i++) {
             b[i] = "_ ";
-         }
-	}
+        }
         setup(a1)
+       
+        }
         var c = a1.length;
         var aa = 0
 		var XLaa=a1.length + 2
@@ -92,10 +47,10 @@ var aaa1 = [];
 		var aaa=aa1.length
         alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + a1.length + " букв")
         while (c > 0 && aa < a1.length + 2) {
-            var show = function(){
-             alert(b.join(""));
+            var show = function(array){
+             alert(array.join(""));
              }
-             show()
+             show(b)
              var get = function(){
              prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
              } 
@@ -162,10 +117,3 @@ var aaa1 = [];
     table.appendChild(tbody);             
     return table;
 }
-//java.io.File f = new java.io.File(aaa1)	
-	
-		document.getElementById("content").appendChild(buildTable(aaa1));
-	
-	</script>
-	
-</html>
