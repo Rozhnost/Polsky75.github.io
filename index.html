@@ -42,14 +42,13 @@ table.gridtable td {
 
   <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 	<script>
-var aaa1 = [];	
-	getElementById("content").appendChild(buildTable(aaa1));
+	
 	var now = new Date();
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
-	
+var aaa1 = [];	
         var a = [
-            ["арбуз","Сам алый, сахарный, \nКафтан зеленый, бархатный."],
-            ["программа","достижение 20 века"],
+	    ["арбуз","Сам алый, сахарный, \nКафтан зеленый, бархатный."],	
+            ["программа", "достижение 20 века"],
             ["мартышка", "У нее были очки"],
             ["оладушек", "Не блинчик :)"],
             ["кошка", "она гуляет сама по себе"],
@@ -68,24 +67,16 @@ var aaa1 = [];
             ["газета", "Языка не имеет,\nА у кого побывает,\nТот много знает."],
             ["ковер", "Я и дом украшаю,\nЯ и пыль собираю.\nА меня люди топчут ногами,\nДа потом ещё бьют батогами."],
             ["время", "Без ног и без крыльев оно,\nБыстро летит, не догонишь его."],
-            ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
-            ["одуванчик","Рос шар бел, \nВетер дунул — улетел. "],
-			["сова","Всю ночь летает – мышей добывает. \nА станет светло – спать летит в дупло."]
+            ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."]
+			
         ];
-        var pick = function() {
-        [Math.floor(Math.random() * a.length)];
-        }
-        var slovo = pick()
-	var ret = a[slovo]
-        var a1 = a[0];
+        var slovo = a[Math.floor(Math.random() * a.length)];
+        var a1 = slovo[0];
         var podskazka = slovo[1];
-         var b = [];
-        var setup = function(word){
-        for (var i = 0; i < word.length; i++) {
+        var b = [];
+		
+        for (var i = 0; i < a1.length; i++) {
             b[i] = "_ ";
-        }
-        setup(a1)
-       
         }
         var c = a1.length;
         var aa = 0
@@ -94,14 +85,8 @@ var aaa1 = [];
 		var aaa=aa1.length
         alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + a1.length + " букв")
         while (c > 0 && aa < a1.length + 2) {
-            var show = function(array){
-             alert(array.join(""));
-             }
-             show(b)
-             var get = function(){
-             prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
-             } 
-            var d = get()
+            alert(b.join(""));
+            var d = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
             if (d === null) {
 			var rrr="Вы вышли из игры. До новых встреч!"
 			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
@@ -166,7 +151,8 @@ var aaa1 = [];
 }
 //java.io.File f = new java.io.File(aaa1)	
 	
-		document.getElemen
+		document.getElementById("content").appendChild(buildTable(aaa1));
+	
 	</script>
 	
 </html>
