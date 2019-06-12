@@ -70,7 +70,10 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."]
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
-        var slovo = a[Math.floor(Math.random() * a.length)];
+	var pick = function(){
+	a[Math.floor(Math.random() * a.length)];
+	}
+        var slovo = pick()
         var a1 = slovo[0];
         var podskazka = slovo[1];
         var b = [];
