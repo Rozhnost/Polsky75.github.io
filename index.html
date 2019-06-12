@@ -132,7 +132,7 @@ var aaa1 = [];
 		}else{
 		var correct_word="очка"
 		}
-		var r = "Поздравляю с победой, " + aa1 + "!Было загадано слово " + a1+". Вы набрали "+o+" очков!"
+		var r = "Поздравляю с победой, " + aa1 + "!Было загадано слово " + a1+". Вы набрали "+o+" "+correct_word+"!"
         var cat="=^.^="
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		if (aaa===5){;
@@ -143,6 +143,7 @@ var aaa1 = [];
 		$("#y").text("   ").css({ 'color': 'orange', 'font-size': '20px' });
         }
 	}
+		}
 	
 	function buildTable(data) {
     var table = document.createElement("table");
