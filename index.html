@@ -77,10 +77,11 @@ var aaa1 = [];
         var a1 = slovo[0];
         var podskazka = slovo[1];
         var b = [];
-		
-        for (var i = 0; i < a1.length; i++) {
+	var setup = function(word){
+	   for (var i = 0; i < word.length; i++) {
             b[i] = "_ ";
-        }
+	}
+	setup(a1)
         var c = a1.length;
         var aa = 0
 		var XLaa=a1.length + 2
