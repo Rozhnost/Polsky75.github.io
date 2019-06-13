@@ -96,9 +96,6 @@ var aaa1 = [];
 		show(a1)
         while (c > 0 && aa < a1.length + 2) {
             alert(b.join(""));
-	var get = function(){
-		
-		
             var d = prompt("Угадайте букву,слово или нажмите Отмена для выхода из игры.")
             if (d === null) {
 			var rrr="Вы вышли из игры. До новых встреч!"
@@ -125,14 +122,7 @@ var aaa1 = [];
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
 		var o=XLaa-aa;
-		if (o===0||o>=5&&o<=20){
-		var correct_word="очков"
-		}else if(o===1){
-		var correct_word="очко"
-		}else{
-		var correct_word="очка"
-		}
-		var r = "Поздравляю с победой, " + aa1 + "!Было загадано слово " + a1+". Вы набрали "+o+" "+correct_word+"!"
+		var r = "Поздравляю с победой, " + aa1 + "!Было загадано слово " + a1+". Вы набрали "+o+"очков!"
         var cat="=^.^="
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		if (aaa===5){;
