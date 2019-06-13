@@ -91,8 +91,6 @@ var aaa1 = [];
                 break;
             } else if (d.length !== 1 && d.toLowerCase() !== a1) {
                 alert("Пожалуйста, введите одиночную букву.");
-            } else if (d.toLowerCase() === a1) {
-                break;
             } else {
                 for (var j = 0; j < a1.length; j++) {
                     if (a1[j] === d.toLowerCase() && b[j] === "_ ") {
@@ -110,7 +108,7 @@ var aaa1 = [];
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
 		var o=XLaa-aa;
-		var r = "Поздравляю с победой, " + aa1 + "!Было загадано слово " + a1+". Вы набрали "+o+"очков!"
+		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " + a1+". Вы набрали "+o+" очков!"
         var cat="=^.^="
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		if (aaa===5){;
