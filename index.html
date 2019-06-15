@@ -101,6 +101,14 @@ var aaa1 = [];
 		prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
 		}
             var d = get()
+	    var update = function(guess,word,answer_arr){
+ 	for (var j = 0; j < word.length; j++) {
+                 if (word[j] === guess.toLowerCase() && answer_arr[j] === "_ ") {
+                     answer_arr[j] = guess.toLowerCase();
+                     c--;
+                 }
+	}
+	}
             if (d === null) {
 			var rrr="Вы вышли из игры. До новых встреч!"
 			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
@@ -110,11 +118,7 @@ var aaa1 = [];
             } else if (d.toLowerCase() === a1) {
                 break;
             } else {
-                for (var j = 0; j < a1.length; j++) {
-                    if (a1[j] === d.toLowerCase() && b[j] === "_ ") {
-                        b[j] = d.toLowerCase();
-                        c--;
-                    }
+              update(d,a1,b)
                 }
                 aa++;
             }
