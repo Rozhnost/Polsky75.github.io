@@ -28,6 +28,18 @@ table.gridtable td {
 }</style>
 </head>
 
+<body>
+    <h1 id="x"></h1>
+	<h1 id="y"></h1>
+    <h1 id="z"></h1>	
+  
+	<div id="content"></div>
+	
+	
+	
+	
+</body>
+
   <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 	<script>
 	
@@ -55,43 +67,37 @@ var aaa1 = [];
             ["газета", "Языка не имеет,\nА у кого побывает,\nТот много знает."],
             ["ковер", "Я и дом украшаю,\nЯ и пыль собираю.\nА меня люди топчут ногами,\nДа потом ещё бьют батогами."],
             ["время", "Без ног и без крыльев оно,\nБыстро летит, не догонишь его."],
-            ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
+            ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."]
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
 	var pick = function(){
-	return a[Math.floor(Math.random() * a.length)];
-	}  
-	var slovo=pick();
-      
+	a[Math.floor(Math.random() * a.length)];
+	}
+        var slovo = pick()
         var a1 = slovo[0];
         var podskazka = slovo[1];
         var b = [];
-	var setup = function(word){
-	   for (var i = 0; i < word.length; i++) {
-        b[i] = "_ ";
-	}
-	}
-	setup(a1)
+		
+        for (var i = 0; i < a1.length; i++) {
+            b[i] = "_ ";
+        }
         var c = a1.length;
         var aa = 0
 		var XLaa=a1.length + 2
         var aa1 = prompt("Как вас зовут?")
 		var aaa=aa1.length
-		var show = function(ans){
-        alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + ans.length + " букв")
-		}
-		show(a1)
+        alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + a1.length + " букв")
         while (c > 0 && aa < a1.length + 2) {
             alert(b.join(""));
-	}
-		var rrr="Вы вышли из игры. До новых встреч!"
-		
-            var d = prompt("Угадайте букву,слово или нажмите Отмена для выхода из игры.")
+            var d = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
             if (d === null) {
+			var rrr="Вы вышли из игры. До новых встреч!"
 			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
                 break;
             } else if (d.length !== 1 && d.toLowerCase() !== a1) {
                 alert("Пожалуйста, введите одиночную букву.");
+            } else if (d.toLowerCase() === a1) {
+                break;
             } else {
                 for (var j = 0; j < a1.length; j++) {
                     if (a1[j] === d.toLowerCase() && b[j] === "_ ") {
@@ -109,7 +115,7 @@ var aaa1 = [];
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
 		var o=XLaa-aa;
-		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " + a1+". Вы набрали "+o+" очков!"
+		var r = "Поздравляю с победой, " + aa1 + "!Было загадано слово " + a1+". Вы набрали "+o+" очков!"
         var cat="=^.^="
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		if (aaa===5){;
@@ -150,17 +156,6 @@ var aaa1 = [];
 	
 		document.getElementById("content").appendChild(buildTable(aaa1));
 	
-</script>	
+	</script>
 	
-<body>
-    <h1 id="x"></h1>
-	<h1 id="y"></h1>
-    <h1 id="z"></h1>	
-  
-	<div id="content"></div>
-	
-	
-	
-	
-</body>
 </html>
