@@ -88,12 +88,15 @@ var aaa1 = [];
 		var XLaa=a1.length + 2
         var aa1 = prompt("Как вас зовут?")
 		var aaa=aa1.length
-        	var shoo = function(ans){
-        alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + ans.length + " букв")
+        	var shoo = function(ant){
+        alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
 		}
-		shoo(a1)
+		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
-            alert(b.join(""));
+		var show = function(answer_arr){
+            alert(answer_arr.join(""));
+		}
+		show(b);
             var d = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
             if (d === null) {
 			var rrr="Вы вышли из игры. До новых встреч!"
