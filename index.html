@@ -90,7 +90,7 @@ var aaa1 = [];
         var aa1 = prompt("Как вас зовут?")
 		var aaa=aa1.length
         	var shoo = function(ant){
-     Swal.fire(title:"Привет, " + aa1 + "!",text: "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв",type: "info",confirmButtonText:"Давай поиграем!")}
+     Swal.fire({title:"Привет, " + aa1 + "!",text: "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв",type: "info",confirmButtonText:"Давай поиграем!"})
 		}
 		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
