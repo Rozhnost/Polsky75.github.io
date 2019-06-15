@@ -97,7 +97,10 @@ var aaa1 = [];
             alert(answer_arr.join(""));
 		}
 		show(b);
-            var d = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
+		var get = function(){
+		prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
+		}
+            var d = get()
             if (d === null) {
 			var rrr="Вы вышли из игры. До новых встреч!"
 			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
