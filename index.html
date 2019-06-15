@@ -88,7 +88,10 @@ var aaa1 = [];
 		var XLaa=a1.length + 2
         var aa1 = prompt("Как вас зовут?")
 		var aaa=aa1.length
-        alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + a1.length + " букв")
+        	var show = function(ans){
+        alert("Привет, " + aa1 + "!\nПодсказка:\n" + podskazka + "\nВ слове " + ans.length + " букв")
+		}
+		show(a1)
         while (c > 0 && aa < a1.length + 2) {
             alert(b.join(""));
             var d = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
