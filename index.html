@@ -41,6 +41,7 @@ table.gridtable td {
 </body>
 
   <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<script>
 	
 	var now = new Date();
@@ -89,7 +90,7 @@ var aaa1 = [];
         var aa1 = prompt("Как вас зовут?")
 		var aaa=aa1.length
         	var shoo = function(ant){
-      SweetAlert2("Привет, " + aa1 + "!", "Подсказка:\n" + podskazka ,"В слове " + ant.length + " букв")
+     Swal.fire(title:"Привет, " + aa1 + "!",text: "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв",type: "info",button:"Давай поиграем!Э)
 		}
 		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
