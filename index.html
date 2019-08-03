@@ -106,7 +106,8 @@ var aaa1 = [];
 		}
             var d = get()
 	    var update = function(guess,word,answer_arr){
- 	for (var j = 0; j < word.length; j++) {
+ 	for (var j = 0; j < 2
+; j++) {
                  if (word[j] === guess.toLowerCase() && answer_arr[j] === "_ ") {
                      answer_arr[j] = guess.toLowerCase();
                      c--;
@@ -132,9 +133,9 @@ var aaa1 = [];
 		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
-		var o=XLaa-aa;
+		var o=2-aa;
 		var win = function(answer_arr){
-		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали "+o+" очков!"
+		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали "+o+" очко(очка)!"
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		}
 		win(a1);
