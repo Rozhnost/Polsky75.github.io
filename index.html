@@ -134,12 +134,12 @@ var aaa1 = [];
         } else {
 		var o=3-a
                 var win = function(answer_arr){
-		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали "+o+" очка!"
+		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очка!"
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		}
 		win(a1);
         var cat="=^.^="
-		if (aaa===5){;
+		if (aaa===5||aaa===4){;
 		aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":o});
 		$("#y").text(cat).css({ 'color': 'orange', 'font-size': '20px' });
 		}else{
