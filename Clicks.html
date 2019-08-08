@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title id="str">Клики по заголовку!</title>
+</head>
+<body>
+	<h1 id="head">Привет,мир!Я родился!!!</h1>
+
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+var leftOffset = 0
+var topOffset = 0
+var clicks = 0
+var speed = 1
+
+	var move = function(){
+	$("#head").text("Уровень " + speed);
+    $("#str").text("Клики по заголовку(ур. " + speed + ")");
+	if (leftOffset < 200 && topOffset < 5) {
+	$("#head").offset({left: leftOffset})
+	leftOffset+=speed
+	}else if (leftOffset >= 200 && topOffset < 200) {
+	$("#head").offset({top: topOffset})
+	topOffset+=speed
+	}else if (leftOffset > 0 && topOffset >= 200) {
+	$("#head").offset({left: leftOffset})
+	leftOffset-=speed
+	}else{
+	$("#head").offset({top: topOffset})
+	topOffset-=speed
+}
+}
+var set = setInterval(move,15);
+var cli = function(event) {
+	console.log("Клик! " + event.pageX + " " + event.pageY)
+	clicks++
+	speed++
+}
+$("h1").click(cli);
+	</script>
+</body>
+</html>
