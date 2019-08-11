@@ -1,42 +1,43 @@
-<! DOCTYPE html>
-< html >
-< голова >
-	< meta  charset = " UTF-8 " >
-	< title  id = " str " > Клики по заголовку! </ title >
-</ head >
-< тело >
-	< h1  id = " head " > Привет, мир! Я родился !!! </ h1 >
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title id="str">Клики по заголовку!</title>
+</head>
+<body>
+	<h1 id="head">Привет,мир!Я родился!!!</h1>
 
- 	< script  src = " https://code.jquery.com/jquery-2.1.0.js " > </ script >
-	< скрипт >
-var leftOffset =  0
-var topOffset =  0
-вар клики =  0
-переменная скорость =  1
- 	var  move  =  function () {
-	$ ( " #head " ). текст ( " Уровень "  + скорость);
-    $ ( " #str " ). text ( " Клики по заголовку (ур. "  + speed +  " ) " );
-	if (leftOffset <  200  && topOffset <  5 ) {
-	$ ( " #head " ). смещение ({left : leftOffset})
-	leftOffset + = скорость
-	} else  if (leftOffset > =  200  && topOffset <  200 ) {
-	$ ( " #head " ). смещение ({top : topOffset})
-	topOffset + = скорость
-	} else  if (leftOffset >  0  && topOffset > =  200 ) {
-	$ ( " #head " ). смещение ({left : leftOffset})
-	leftOffset - = скорость
-	} еще {
-	$ ( " #head " ). смещение ({top : topOffset})
-	topOffset - = скорость
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<script>
+var leftOffset = 0
+var topOffset = 0
+var clicks = 0
+var speed = 1
+
+	var move = function(){
+	$("#head").text("Уровень " + speed);
+    $("#str").text("Клики по заголовку(ур. " + speed + ")");
+	if (leftOffset < 200 && topOffset < 5) {
+	$("#head").offset({left: leftOffset})
+	leftOffset+=speed
+	}else if (leftOffset >= 200 && topOffset < 200) {
+	$("#head").offset({top: topOffset})
+	topOffset+=speed
+	}else if (leftOffset > 0 && topOffset >= 200) {
+	$("#head").offset({left: leftOffset})
+	leftOffset-=speed
+	}else{
+	$("#head").offset({top: topOffset})
+	topOffset-=speed
 }
 }
-var set =  setInterval (move, 15 );
-var  cli  =  function ( event ) {
-	консоль . журнал ( " Клик! "  +  событие . pageX  +  "  "  +  событие . страницаY )
-	клики ++
-	скорость ++
+var set = setInterval(move,15);
+var cli = function(event) {
+	console.log("Клик! " + event.pageX + " " + event.pageY)
+	clicks++
+	speed++
 }
-$ ( " h1 " ). щелкните (cli);
-	</ script >
-</ body >
-</ html >
+$("h1").click(cli);
+	</script>
+</body>
+</html>
