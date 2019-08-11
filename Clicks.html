@@ -39,11 +39,11 @@ var cli = function(event) {
 	speed++
 }
 if (clicks>=10){
+z++
+}else{
 clearInterval(set);
 $("#head").text("Вы победили!")
 console.log(z)
-}else{
-z++
 }
 $("h1").click(cli);
 	</script>
