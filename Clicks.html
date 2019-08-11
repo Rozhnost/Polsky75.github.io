@@ -31,11 +31,16 @@ var speed = 1
 	topOffset-=speed
 }
 }
+if (clicks<10){
 var set = setInterval(move,15);
 var cli = function(event) {
 	console.log("Клик! " + event.pageX + " " + event.pageY)
 	clicks++
 	speed++
+}
+}else{
+clear interval(set);
+$("#head").text("Вы победили!")
 }
 $("h1").click(cli);
 	</script>
