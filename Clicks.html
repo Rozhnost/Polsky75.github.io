@@ -30,7 +30,6 @@ var speed = 1
 	$("#head").offset({top: topOffset})
 	topOffset-=speed
 }
-if (clicks < 10){
 var set = setInterval(move,15);
 var cli = function(event) {
 	console.log("Клик! " + event.pageX + " " + event.pageY)
@@ -38,9 +37,7 @@ var cli = function(event) {
 	speed++
 }
 $("h1").click(cli);
-}else{
 clear interval(set)
-}
 	</script>
 </body>
 </html>
