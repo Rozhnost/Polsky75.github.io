@@ -5,7 +5,7 @@
 	<title id="str">Клики по заголовку!</title>
 </head>
 <body>
-	<h1 id="head">Привет,мир!Я родился!!!</h1>
+	<h1 id="head">...Загрузка...</h1>
 
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 	<script>
@@ -14,10 +14,10 @@ var topOffset = 0
 var clicks = 0
 var speed = 1
 var z = 0
+$("#str").text("Клики по заголовку(ур. " + speed + ")");
+$("#head").text("Уровень " + speed);
 
 	var move = function(){
-	$("#head").text("Уровень " + speed);
-    $("#str").text("Клики по заголовку(ур. " + speed + ")");
 	if (leftOffset < 200 && topOffset < 5) {
 	$("#head").offset({left: leftOffset})
 	leftOffset+=speed
@@ -37,6 +37,8 @@ var cli = function(event) {
 	console.log("Клик! " + event.pageX + " " + event.pageY)
 	clicks++
 	speed++
+	$("#head").text("Уровень " + speed);
+	$("#str").text("Клики по заголовку(ур. " + speed + ")");
 }
 if (clicks<10){
 z++
