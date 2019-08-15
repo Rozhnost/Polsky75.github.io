@@ -31,6 +31,13 @@ $("#head").text("Уровень " + speed);
 	$("#head").offset({top: topOffset})
 	topOffset-=speed
 }
+if (clicks<10){
+z++
+}else{
+clearInterval(set);
+$("#head").text("Вы победили!")
+console.log(z)
+}
 }
 var set = setInterval(move,15);
 var cli = function(event) {
@@ -39,13 +46,6 @@ var cli = function(event) {
 	speed++
 	$("#head").text("Уровень " + speed);
 	$("#str").text("Клики по заголовку(ур. " + speed + ")");
-}
-if (clicks<10){
-z++
-}else{
-clearInterval(set);
-$("#head").text("Вы победили!")
-console.log(z)
 }
 $("h1").click(cli);
 	</script>
