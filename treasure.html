@@ -8,7 +8,7 @@
 <body>
   <h1 id=heading>Найди клад!</h1>
   
-  <img id="map" width=800 heigh=400 src="http://nostarch.com/images/treasuremap.png">
+  <img id="map" width=800 heigh=800 src="http://nostarch.com/images/treasuremap.png">
   
   <p id=distance><p>
  
@@ -23,24 +23,24 @@
       return Math.sqrt((diffX * diffX) + (diffY * diffY));
     }
     var getDistanseHint = function (distance) {
-      if (distance<10){
+      if (distance<20){
         return "Обожжешься!";
-      }else if (distance<20){
-        return "Очень горячо";
       }else if (distance<40){
-        return "Горячо";
+        return "Очень горячо";
       }else if (distance<80){
-        return "Тепло";
+        return "Горячо";
       }else if (distance<160){
-        return "Холодно";
+        return "Тепло";
       }else if (distance<320){
+        return "Холодно";
+      }else if (distance<640){
         return "Очень холодно";
       }else{
         return "Замерзнешь!";
       }
     }
-    var width = 400
-    var heigh = 400
+    var width = 800
+    var heigh = 800
     var clicks = 0
         var target = {
       x: getRandomNumber(width),
