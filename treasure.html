@@ -24,30 +24,32 @@
     }
     var getDistanseHint = function (distance) {
       if (distance<20){
-        return "Обожжешься!(Осталось кликов: " + clicks + ")";
+        return "Обожжешься!(Осталось кликов: " + Xclicks + ")";
       }else if (distance<40){
-        return "Очень горячо! (Осталось кликов: " + clicks + ")";
+        return "Очень горячо! (Осталось кликов: " + Xclicks + ")";
       }else if (distance<80){
-        return "Горячо! (Осталось кликов: " + clicks + ")";
+        return "Горячо! (Осталось кликов: " + Xclicks + ")";
       }else if (distance<160){
-        return "Тепло! (Осталось кликов: " + clicks + ")";
+        return "Тепло! (Осталось кликов: " + Xclicks + ")";
       }else if (distance<320){
-        return "Холодно! (Осталось кликов: " + clicks + ")";
+        return "Холодно! (Осталось кликов: " + Xclicks + ")";
       }else if (distance<640){
-        return "Очень холодно! (Осталось кликов: " + clicks + ")";
+        return "Очень холодно! (Осталось кликов: " + Xclicks + ")";
       }else{
-        return "Замерзнешь!! (Осталось кликов: " + clicks + ")";
+        return "Замерзнешь!! (Осталось кликов: " + Xclicks + ")";
       }
     }
     var width = 800
     var heigh = 800
     var clicks = 0
+    var Xclicks = 30
         var target = {
       x: getRandomNumber(width),
       y: getRandomNumber(heigh)
     }
     $("#map").click(function(event){
       clicks++
+      Xclicks--
       var distance = getDistance(event, target);
       var distanceHint = getDistanseHint(distance);
       $("#distance").text(distanceHint);
