@@ -48,7 +48,7 @@
     var width = 800
     var heigh = 800
     var clicks = 0
-    var Xclicks = 40
+    var Xclicks = 50
         var target = {
       x: getRandomNumber(width),
       y: getRandomNumber(heigh)
@@ -61,7 +61,7 @@
       $("#distance").text(distanceHint);
       if (distance < 8){
         alert("Клад найден! Сделано кликов: " + clicks);
-      }else if(clicks > 40){
+      }else if(clicks > 50){
         alert("КОНЕЦ ИГРЫ");
       }
     });
