@@ -40,13 +40,31 @@ table.gridtable td {
 	
 	
 </body>
-
+<canvas id = "canvas" width="200" height="200"></canvas>
   <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<script>
 	
 	var now = new Date();
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
+		var canvas = document.getElementById("canvas")
+		var ctx= canvas.getContext("2d")
+	ctx.lineWidth = 4;
+	ctx.strokeStyle = "Black"
+	ctx.fillStyle = "Black"
+		var draw_points = function (massive,n) {
+		for (var i = 0; i < massive.length;i++) {
+			ctx.beginPath();
+			ctx.moveTo(massive[i][0],massive[i][1])
+			if(i+1<massive.length){
+			ctx.lineTo(massive[i+1][0],massive[i+1][1])
+			ctx.stroke();
+			}
+			else if (n===1){
+			ctx.lineTo(massive[0][0],massive[0][1])
+			ctx.stroke();
+			}
+		}
 var aaa1 = [];	
         var a = [
 	    ["арбуз","Сам алый, сахарный, \nКафтан зеленый, бархатный."],	
@@ -96,7 +114,7 @@ var aaa1 = [];
      Swal.fire({title:"Хорошая игра, " + aa1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
 		}
 		shoo(a1);
-        while (c > 0 && aa < a1.length + 2) {
+        while (c > 0 && aa < 5) {
 		var show = function(answer_arr){
             alert(answer_arr.join(""));
 		}
@@ -124,8 +142,23 @@ var aaa1 = [];
             } else {
               update(d,a1,b)
                 }
+		var massA=[[30,60],[15,90]]
+		var massB=[[30,60],[45,90]]
+		var massC=[[30,30],[30,60]]
+		var massD=[[30,40],[10,35]]
+		var massE=[[30,40],[50,35]]
                 aa++;
-	
+		if(aa=1){
+		ctx.strokeRect(20,10,20,20);
+		}else if(aa=2){
+		draw_points(massC,1)
+		}else if(aa=3){
+		draw_points(massD,1)
+		}else if(aa=4){
+		draw_points(massE,1)
+		}else{
+		draw_points(massA,1)
+		draw_points(massB,1)
             }
         var str = b.join('');
         if (str.toLowerCase() !== a1.toLowerCase() && d.toLowerCase() !== a1.toLowerCase()) {
