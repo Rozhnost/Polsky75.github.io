@@ -46,6 +46,7 @@ table.gridtable td {
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<script>
 	 var field = loadData();
+	for(var a=0;a>5;a--){
 	var now = new Date();
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
 var canvas = document.getElementById("canvas")
@@ -178,6 +179,7 @@ var aaa1 = [];
     table.appendChild(tbody);             
     return table;
 }
+	}
 //java.io.File f = new java.io.File(aaa1)	
 	
 		document.getElementById("content").appendChild(buildTable(aaa1));
