@@ -49,7 +49,20 @@ table.gridtable td {
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
 var canvas = document.getElementById("canvas")
 		var ctx= canvas.getContext("2d")
-		ctx.strokeRect(120,110,20,20);
+			var draw_points = function (massive,n) {
+		for (var i = 0; i < massive.length;i++) {
+			ctx.beginPath();
+			ctx.moveTo(massive[i][0],massive[i][1])
+			if(i+1<massive.length){
+			ctx.lineTo(massive[i+1][0],massive[i+1][1])
+			ctx.stroke();
+			}
+			else if (n===1){
+			ctx.lineTo(massive[0][0],massive[0][1])
+			ctx.stroke();
+			}
+		}
+	}
 var aaa1 = [];	
         var a = [
 	    ["арбуз","Сам алый, сахарный, \nКафтан зеленый, бархатный."],	
