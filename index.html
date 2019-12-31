@@ -146,13 +146,16 @@ var aaa1 = [];
             } else {
               update(d,a1,b)
                 }
+		var o = 5
                 aa++;
 		if(aa===1){
 		ctx.strokeRect(20,10,20,20);
 		}else if(aa===2){
 		draw_points(massC)
+		o--
 		}else{
 		draw_points(massA)
+		o-=2
 		}
 	}
         var str = b.join('');
@@ -161,7 +164,6 @@ var aaa1 = [];
 		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
-		var o=5
                 var win = function(answer_arr){
 		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
