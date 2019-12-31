@@ -150,12 +150,13 @@ var aaa1 = [];
                 aa++;
 		if(aa===1){
 		ctx.strokeRect(20,10,20,20);
+		o--
 		}else if(aa===2){
 		draw_points(massC)
-		o--
+		o-=2
 		}else{
 		draw_points(massA)
-		o-=2
+		o-=3
 		}
 	}
         var str = b.join('');
