@@ -23,13 +23,23 @@
 	ctx.fillRect(0,0,blockSize,h)
 	ctx.fillRect(w-blockSize,0,blockSize,h)
 	};
+	var drawScore = function(){
+	ctx.font = "20 px courier";
+	ctx.fillStyle = "Black";
+	ctx.textAlign = "Left";
+	ctx.textBaseline = "top";
+	ctx.fillText("Счет: " + score,blockSize,blockSize)
+	}
 	drawBorder();
-	ctx.font = "20 px Courier"
-	ctx.fillText("Courier",50,50)
-	ctx.font = "24px Comic Sasns Ms"
-	ctx.fillText("Comic Sans",50,100)
-	ctx.font = "18px Arial"
-	ctx.strokeText("Arial",50,150)	
+	drawScore();
+	var gameOver = function(){
+	ctx.font = "60 px courier";
+	ctx.fillStyle = "Black";
+	ctx.textAlign = "Center";
+	ctx.textBaseline = "Middle";
+	ctx.fillText("Конец игры", w/2, h/2);
+	}
+	gameOver();
 	</script>
 </body>
 </html>
