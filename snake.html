@@ -31,16 +31,20 @@
 	ctx.fillText("Счет: " + score,blockSize,blockSize)
 	}
 	drawBorder();
-	drawScore();
 	var gameOver = function(){
+	clearInterval(intervalId)
 	ctx.font = "60px courier";
 	ctx.fillStyle = "Black";
 	ctx.textAlign = "center";
 	ctx.textBaseline = "middle";
 	ctx.fillText("Конец игры", w/2, h/2);
 	}
-	gameOver()
-		
+	var xScore = setInterval(function(){
+	ctx.clearRect(0,0,w,h)
+	score++
+	drawBorder();
+	drawScore();
+	}, 100);
 	</script>
 </body>
 </html>
