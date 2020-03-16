@@ -61,7 +61,15 @@ table.gridtable td {
 			ctx.stroke();
 			}
 		}
+	
 	}
+	var circle = function (x,y,radius,fillCircle) {
+  	ctx.beginPath();
+  	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    	ctx.fill();
+    	ctx.stroke();
+  	}
+  	}
 	var massA=[[30,60],[15,90]]
 	var massB=[[30,60],[45,90]]
 	var massC=[[30,30],[30,60]]
@@ -96,6 +104,7 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
+	circle(15,100,10)
 	var pick = function(){
 	return a[Math.floor(Math.random() * a.length)];
 	}
