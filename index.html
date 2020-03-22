@@ -66,7 +66,7 @@ table.gridtable td {
 	var circle = function (x,y,radius,fillCircle) {
 	ctx.fillStyle = "Purple"
 	ctx.strokeStyle = "Black"
-	ctx.lineWidth = 1
+	ctx.lineWidth = 2
   	ctx.beginPath();
   	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
     	ctx.stroke();
@@ -111,10 +111,10 @@ var aaa1 = [];
 	ctx.textBaseline = "middle"
 	ctx.textAlign = "center"
 	ctx.fillText("Й",x+15,y+10)
-	circle(x+30,y+10,10)
-	ctx.fillText("Ц",x+30,y+10)
 	circle(x+45,y+10,10)
-	ctx.fillText("У",x+45,y+10)
+	ctx.fillText("Ц",x+45,y+10)
+	circle(x+75,y+10,10)
+	ctx.fillText("У",x+75,y+10)
 	}
 	drawKeyboard(0,90)
 	var pick = function(){
