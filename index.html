@@ -65,10 +65,12 @@ table.gridtable td {
 	}
 	var circle = function (x,y,radius,fillCircle) {
 	ctx.fillStyle = "Purple"
+	ctx.strokeStyle = "Black"
 	ctx.lineWidth = 1
   	ctx.beginPath();
   	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
     	ctx.stroke();
+	ctx.fill();
   	}
 	var massA=[[30,60],[15,90]]
 	var massB=[[30,60],[45,90]]
@@ -104,10 +106,14 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
-	circle(15,100,10)
+	var drawKeyboard = function(x,y){
+	ctx.fillStyle = "Black"
+	circle(x+15,y+10,10)
 	ctx.textBaseline = "middle"
 	ctx.textAlign = "center"
-	ctx.fillText("Й",15,100)
+	ctx.fillText("Й",x+15,y+10)
+	}
+	drawKeyboard(0,90)
 	var pick = function(){
 	return a[Math.floor(Math.random() * a.length)];
 	}
