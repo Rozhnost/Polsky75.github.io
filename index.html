@@ -320,25 +320,6 @@ var aaa1 = [];
       var diffY = event.offsetY - target.yy;
       return Math.sqrt((diffX * diffX) + (diffY * diffY));
     }
-    $("#map").click(function(event){
-      var Й_distance = getDistance(event, Й);
-       var Ц_distance = getDistance(event, Ц);
-        var У_distance = getDistance(event, У);
-         var К_distance = getDistance(event, К);
-          var Е_distance = getDistance(event, Е);
-           var Н_distance = getDistance(event, Н);
-            var Г_distance = getDistance(event, Г);
-             var Ш_distance = getDistance(event, Ш);
-              var Щ_distance = getDistance(event, Щ);
-               var З_distance = getDistance(event, З);
-                var Х_distance = getDistance(event, Х);
-                 var Ъ_distance = getDistance(event, Ъ);
-	if (Й_distance<8){
-	answer=answer+"Й"
-	}else if (Ъ_distance<8){
-	alert(answer)
-	}
-    });
 	var pick = function(){
 	return a[Math.floor(Math.random() * a.length)];
 	}
@@ -415,6 +396,25 @@ var aaa1 = [];
 		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
+		    $("#map").click(function(event){
+      var Й_distance = getDistance(event, Й);
+       var Ц_distance = getDistance(event, Ц);
+        var У_distance = getDistance(event, У);
+         var К_distance = getDistance(event, К);
+          var Е_distance = getDistance(event, Е);
+           var Н_distance = getDistance(event, Н);
+            var Г_distance = getDistance(event, Г);
+             var Ш_distance = getDistance(event, Ш);
+              var Щ_distance = getDistance(event, Щ);
+               var З_distance = getDistance(event, З);
+                var Х_distance = getDistance(event, Х);
+                 var Ъ_distance = getDistance(event, Ъ);
+	if (Й_distance<8){
+	answer=answer+"Й"
+	}else if (Ъ_distance<8){
+	alert(answer)
+	}
+    });
                 var win = function(answer_arr){
 		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
