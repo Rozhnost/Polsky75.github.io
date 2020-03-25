@@ -105,234 +105,60 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
-	var drawKeyboard = function(x,y){
-	ctx.fillStyle = "Black"
-	circle(x+15,y+10,15)
-	ctx.font = "15px Courier"
-	ctx.textBaseline = "middle"
-	ctx.textAlign = "center"
-	ctx.fillText("Й",x+15,y+10)
-		
-	circle(x+42+10,y+10,15)
-	ctx.fillText("Ц",x+42+10,y+10)
-		
-	circle(x+69+20,y+10,15)
-	ctx.fillText("У",x+69+20,y+10)
-		
-	circle(x+96+30,y+10,15)
-	ctx.fillText("К",x+96+30,y+10)
-		
-	circle(x+123+40,y+10,15)
-	ctx.fillText("Е",x+123+40,y+10)
-		
-	circle(x+150+50,y+10,15)
-	ctx.fillText("Н",x+150+50,y+10)
-		
-	circle(x+177+60,y+10,15)
-	ctx.fillText("Г",x+177+60,y+10)
-		
-	circle(x+204+70,y+10,15)
-	ctx.fillText("Ш",x+204+70,y+10)
-		
-	circle(x+231+80,y+10,15)
-	ctx.fillText("Щ",x+231+80,y+10)
-		
-	circle(x+258+90,y+10,15)
-	ctx.fillText("З",x+258+90,y+10)
-		
-	circle(x+285+100,y+10,15)
-	ctx.fillText("Х",x+285+100,y+10)
-		
-	circle(x+312+110,y+10,15)
-	ctx.fillText("Ъ",x+312+110,y+10)
-		
-	ctx.fillStyle = "Black"
-	circle(x+15,y+47,15)
-	ctx.textBaseline = "middle"
-	ctx.textAlign = "center"
-	ctx.fillText("Ф",x+15,y+47)
-		
-	circle(x+52,y+37+10,15)
-	ctx.fillText("Ы",x+52,y+47)
-		
-	circle(x+89,y+37+10,15)
-	ctx.fillText("В",x+89,y+47)
-		
-	circle(x+126,y+47,15)
-	ctx.fillText("А",x+126,y+47)
-		
-	circle(x+163,y+47,15)
-	ctx.fillText("П",x+163,y+47)
-		
-	circle(x+200,y+47,15)
-	ctx.fillText("Р",x+200,y+47)
-		
-	circle(x+237,y+47,15)
-	ctx.fillText("О",x+237,y+47)
-		
-	circle(x+274,y+47,15)
-	ctx.fillText("Л",x+274,y+47)
-		
-	circle(x+311,y+47,15)
-	ctx.fillText("Д",x+311,y+47)
-		
-	circle(x+348,y+47,15)
-	ctx.fillText("Ж",x+348,y+47)
-		
-	circle(x+385,y+47,15)
-	ctx.fillText("Э",x+385,y+47)
-		
-	circle(x+422,y+47,15)
-	ctx.fillText("_",x+422,y+47)
-		
-	ctx.fillStyle = "Black"
-	circle(x+15,y+84,15)
-	ctx.textBaseline = "middle"
-	ctx.textAlign = "center"
-	ctx.fillText("Я",x+15,y+84)
-		
-	circle(x+52,y+84,15)
-	ctx.fillText("Ч",x+52,y+84)
-		
-	circle(x+89,y+84,15)
-	ctx.fillText("С",x+89,y+84)
-		
-	circle(x+126,y+84,15)
-	ctx.fillText("М",x+126,y+84)
-		
-	circle(x+163,y+84,15)
-	ctx.fillText("И",x+163,y+84)
-		
-	circle(x+200,y+84,15)
-	ctx.fillText("Т",x+200,y+84)
-		
-	circle(x+237,y+84,15)
-	ctx.fillText("Ь",x+237,y+84)
-		
-	circle(x+274,y+84,15)
-	ctx.fillText("Б",x+274,y+84)
-		
-	circle(x+311,y+84,15)
-	ctx.fillText("Ю",x+311,y+84)
-		
-	circle(x+348,y+84,15)
-	ctx.fillText(".",x+348,y+84)
-		
-	circle(x+385,y+84,15)
-	ctx.fillText(",",x+385,y+84)
-		
-	circle(x+422,y+84,15)
-	ctx.fillText("!",x+422,y+84)
-		
-	ctx.fillStyle = "Black"
-	circle(x+15,y+121,15)
-	ctx.textBaseline = "middle"
-	ctx.textAlign = "center"
-	ctx.fillText("1",x+15,y+121)
-		
-	circle(x+52,y+121,15)
-	ctx.fillText("2",x+52,y+121)
-		
-	circle(x+89,y+121,15)
-	ctx.fillText("3",x+89,y+121)
-		
-	circle(x+126,y+121,15)
-	ctx.fillText("4",x+126,y+121)
-		
-	circle(x+163,y+121,15)
-	ctx.fillText("5",x+163,y+121)
-		
-	circle(x+200,y+121,15)
-	ctx.fillText("6",x+200,y+121)
-		
-	circle(x+237,y+121,15)
-	ctx.fillText("7",x+237,y+121)
-		
-	circle(x+274,y+121,15)
-	ctx.fillText("8",x+274,y+121)
-		
-	circle(x+311,y+121,15)
-	ctx.fillText("9",x+311,y+121)
-		
-	circle(x+348,y+121,15)
-	ctx.fillText("0",x+348,y+121)
-		
-	circle(x+385,y+121,15)
-	ctx.fillText("?",x+385,y+121)
-		
-	circle(x+422,y+121,15)
-	ctx.fillText("§",x+422,y+121)
-		
-	var Й = {
-      	xx: x+15,
-      	yy: y+10
-    	}
-	var Ц = {
-      	xx: x+52,
-      	yy: y+10
-    	}
-	var У = {
-      	xx: x+89,
-      	yy: y+10
-    	}
-	var К = {
-      	xx: x+126,
-      	yy: y+10
-    	}
-	var E = {
-      	xx: x+163,
-      	yy: y+10
-    	}
-	var Н = {
-      	xx: x+200,
-      	yy: y+10
-    	}
-	var Г = {
-      	xx: x+237,
-      	yy: y+10
-    	}
-	var Ш = {
-      	xx: x+274,
-      	yy: y+10
-    	}
-	var Щ = {
-      	xx: x+311,
-      	yy: y+10
-    	}
-	var З = {
-      	xx: x+348,
-      	yy: y+10
-    	}
-	var Х = {
-      	xx: x+385,
-      	yy: y+10
-    	}
-	var Ъ = {
-      	xx: x+422,
-      	yy: y+10
-    	}
-}
-
-	drawKeyboard(0,310)
-	var answer = ""
+var answer = ""
 var keyAct = {
-  81: "Й",
-  87: "Ц",
-  69: "У",
-  82: "К",
-  84: "Е",
-  89: "Н",
-  85: "Г",
-  73: "Ш",
-  79: "Щ"
+  81:"Й",
+  87:"Ц",
+  69:"У",
+  82:"К",
+  84:"Е",
+  89:"Н",
+  85:"Г",
+  73:"Ш",
+  79:"Щ",
+  80:"З",
+  219:"Х",
+  221:"Ъ",
+  65:"Ф",
+  83:"Ы",
+  68:"В",
+  70:"А",
+  71:"П",
+  72:"Р",
+  74:"О",
+  75:"Л",
+  76:"Д",
+  186:"Ж",
+  222:"Э",
+  90:"Я",
+  88:"Ч",
+  67:"С",
+  86:"М",
+  66:"И",
+  78:"Т",
+  77:"Ь",
+  188:"Б",
+  190:"Ю",
+  8:"Clear",
+  13:"Enter",
+  32:"Space",
+  48:"0",
+  49:"1",
+  50:"2",
+  51:"3",
+  52:"4",
+  53:"5",
+  54:"6",
+  55:"7",
+  56:"8",
+  57:"9",
+  189:"_"
 }
-
-
-	   var getDistance = function(event,target) {
-      var diffX = event.offsetX - target.xx;
-      var diffY = event.offsetY - target.yy;
-      return Math.sqrt((diffX * diffX) + (diffY * diffY));
-    }
+var getAns = function(d){
+if (d==="Й"||d==="Ц"||d==="У"||d==="К"||d==="Е"||d==="Н"||d==="Г"||d==="Ш"||d==="Щ"||d==="З"||d==="Х"||d==="Ъ"||d==="Ф"||d==="Ы"||d==="В"||d==="А"||d==="П"||d==="Р"||d==="О"||d==="Л"||d==="Д"||d==="Ж"||d==="Э"||d==="Я"||d==="Ч"||d==="С"||d==="М"||d==="И"||d==="Т"||d==="Ь"||d==="Б"||d==="Ю"||d==="1"||d==="2"||d==="3"||d==="4"||d==="5"||d==="6"||d==="7"||d==="8"||d==="9"||d==="_")
+answer=answer+d
+console.log(answer);
+}
 	var pick = function(){
 	return a[Math.floor(Math.random() * a.length)];
 	}
@@ -409,27 +235,7 @@ var keyAct = {
 		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
-		    $("#map").click(function(event){
-      var Й_distance = getDistance(event, Й);
-       var Ц_distance = getDistance(event, Ц);
-        var У_distance = getDistance(event, У);
-         var К_distance = getDistance(event, К);
-          var Е_distance = getDistance(event, Е);
-           var Н_distance = getDistance(event, Н);
-            var Г_distance = getDistance(event, Г);
-             var Ш_distance = getDistance(event, Ш);
-              var Щ_distance = getDistance(event, Щ);
-               var З_distance = getDistance(event, З);
-                var Х_distance = getDistance(event, Х);
-                 var Ъ_distance = getDistance(event, Ъ);
-	if (Й_distance<8){
-	answer=answer+"Й"
-	console.log("agsgkg")
-	}else if (Ъ_distance<8){
-	alert("Эмыявмоп")
-	}
-    });
-                var win = function(answer_arr){
+      var win = function(answer_arr){
 		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
 		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		}
