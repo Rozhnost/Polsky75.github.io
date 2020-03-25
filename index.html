@@ -159,6 +159,10 @@ if (d==="Й"||d==="Ц"||d==="У"||d==="К"||d==="Е"||d==="Н"||d==="Г"||d==="�
 answer=answer+d
 console.log(answer);
 }
+$("body").keydown(function(event){
+  var dir = keyAct[event.keyCode];
+  getAns(dir);
+});
 	var pick = function(){
 	return a[Math.floor(Math.random() * a.length)];
 	}
