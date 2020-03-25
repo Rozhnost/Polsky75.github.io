@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Угадай слово!!!</title>
+    <title>Угадай_слово!!!</title>
 	<style>table.gridtable {
 	font-family: verdana,arial,sans-serif;   
 	font-size:11px;
@@ -161,7 +161,11 @@ console.log(answer);
 }else if(d==="Clear"){
 answer = answer.slice(0,answer.length-1)
 console.log(answer);
-}
+}else if(d==="Space"){
+answer = answer+" "
+}else if(d==="Enter"){
+alert(answer);
+return(answer);
 }
 $("body").keydown(function(event){
   var dir = keyAct[event.keyCode];
