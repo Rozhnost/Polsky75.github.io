@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Угадай_слово!!!</title>
+    <title>Угадай слово!!!</title>
 	<style>table.gridtable {
 	font-family: verdana,arial,sans-serif;   
 	font-size:11px;
@@ -156,7 +156,10 @@ var keyAct = {
 }
 var getAns = function(d){
 if (d==="Й"||d==="Ц"||d==="У"||d==="К"||d==="Е"||d==="Н"||d==="Г"||d==="Ш"||d==="Щ"||d==="З"||d==="Х"||d==="Ъ"||d==="Ф"||d==="Ы"||d==="В"||d==="А"||d==="П"||d==="Р"||d==="О"||d==="Л"||d==="Д"||d==="Ж"||d==="Э"||d==="Я"||d==="Ч"||d==="С"||d==="М"||d==="И"||d==="Т"||d==="Ь"||d==="Б"||d==="Ю"||d==="1"||d==="2"||d==="3"||d==="4"||d==="5"||d==="6"||d==="7"||d==="8"||d==="9"||d==="_"){
-answer=answer+d
+answer = answer+d
+console.log(answer);
+}else if(d==="Clear"){
+answer = answer.slice(0,answer.length-1)
 console.log(answer);
 }
 }
