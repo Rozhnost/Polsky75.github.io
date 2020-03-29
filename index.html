@@ -118,6 +118,9 @@ var answer = document.getElementById("txt").value
 answer1 = answer
 }
 }
+while (nickname1 === ""){
+document.getElementById("btn").onclick = textext3;
+}
 var slovo = a
 var a1 = slovo[0];
 var podskazka = slovo[1];
@@ -127,15 +130,11 @@ for (var i = 0; i < word.length; i++) {
 b[i] = "_ ";
 }
 }
+setup(a1)
 var c = a1.length;
 var aa = 0
 var XLaa=a1.length + 2
-if (nickname1 === ""){
-document.getElementById("btn").onclick = textext3;
-}else{
- setup(a1)
 var aaa=nickname1.length
-}
         	var shoo = function(ant){
  	alert("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
      Swal.fire({title:"Хорошая игра, " + nickname1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
@@ -143,15 +142,11 @@ var aaa=nickname1.length
 		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
 		var show = function(answer_arr){
-	    if (nickname1 === ""){
             alert(answer_arr.join(""));
-	    }
 		}
 		show(b);
 		var get = function(){
-		if (nickname1 === ""){
 		return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
-		}
 		}
             var d = get()
 	    var update = function(guess,word,answer_arr){
