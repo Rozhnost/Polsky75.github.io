@@ -118,14 +118,14 @@ var answer = document.getElementById("txt").value
 answer1 = answer
 }
 }
+if (nickname1 === ""){
 document.getElementById("btn").onclick = textext3;
-	var pick = function(){
-	return a[Math.floor(Math.random() * a.length)];
-	}
-        var slovo = pick()
+}else{
+        var slovo = nickname1
         var a1 = slovo[0];
         var podskazka = slovo[1];
       var b = [];
+}
 	var setup = function(word){
 	   for (var i = 0; i < word.length; i++) {
         b[i] = "_ ";
