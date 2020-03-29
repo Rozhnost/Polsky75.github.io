@@ -137,8 +137,8 @@ document.getElementById("btn").onclick = textext3;
 var aaa=nickname1.length
 }
         	var shoo = function(ant){
- 	alert("Привет, " + aa1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
-     Swal.fire({title:"Хорошая игра, " + aa1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
+ 	alert("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
+     Swal.fire({title:"Хорошая игра, " + nickname1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
 		}
 		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
@@ -197,7 +197,7 @@ var aaa=nickname1.length
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
       var win = function(answer_arr){
-		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
+		var r = "Поздравляю с победой, " + nickname1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
 		ctx.fillStyle = "Red"
 		ctx.font = "20px Courier"
 		ctx.fillText(r,10,50)
