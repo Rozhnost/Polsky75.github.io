@@ -112,11 +112,9 @@ var answer1 = ""
 var textext3 = function(){
 if (nickname1 === ""){
 var nickname = document.getElementById("txt").value
-alert("Вас зовут " + nickname)
 nickname1 = nickname
 }else{
 var answer = document.getElementById("txt").value
-alert("Ваш ответ: " + answer)
 answer1 = answer
 }
 }
@@ -205,10 +203,10 @@ document.getElementById("btn").onclick = textext3;
         var cat="=^.^="
 		if (aaa===5||aaa===4){;
 		aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":o});
-		$("#y").text(cat).css({ 'color': 'orange', 'font-size': '20px' });
+		ctx.font = "20px Courier"
+		ctx.fillText(cat,10,110)
 		}else{
 		aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":o});
-		$("#y").text("   ").css({ 'color': 'orange', 'font-size': '20px' });
         }
 	}
 	
