@@ -143,11 +143,15 @@ var aaa=nickname1.length
 		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
 		var show = function(answer_arr){
+	    if (nickname1 === ""){
             alert(answer_arr.join(""));
+	    }
 		}
 		show(b);
 		var get = function(){
+		if (nickname1 === ""){
 		return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
+		}
 		}
             var d = get()
 	    var update = function(guess,word,answer_arr){
