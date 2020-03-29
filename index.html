@@ -109,11 +109,17 @@ var aaa1 = [];
         ];
 function textext1(){
 var nickname = document.getElementById("txt").value
+alert("Вас зовут " + nickname)
 }
 function textext2(){
 var answer = document.getElementById("txt").value
+alert("Ваш ответ: " + answer)
 }
+if (a===""){
 document.getElementById("btn").onclick = textext1;
+}else{
+document.getElementById("btn").onclick = textext2;
+}
 	var pick = function(){
 	return a[Math.floor(Math.random() * a.length)];
 	}
