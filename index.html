@@ -109,19 +109,15 @@ var aaa1 = [];
         ];
 var nickname1 = ""
 var answer1 = ""
-function textext1(){
+if (nickname1 === ""){
 var nickname = document.getElementById("txt").value
 alert("Вас зовут " + nickname)
 nickname1 = nickname
-}
-function textext2(){
+document.getElementById("btn").onclick = textext1;
+}else{
 var answer = document.getElementById("txt").value
 alert("Ваш ответ: " + answer)
 answer1 = answer
-}
-if (nickname1 === ""){
-document.getElementById("btn").onclick = textext1;
-}else{
 document.getElementById("btn").onclick = textext2;
 }
 	var pick = function(){
