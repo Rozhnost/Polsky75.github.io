@@ -192,12 +192,16 @@ document.getElementById("btn").onclick = textext3;
         var str = b.join('');
         if (str.toLowerCase() !== a1.toLowerCase() && d.toLowerCase() !== a1.toLowerCase()) {
          var rr= "К сожалению,вы проиграли. Попрбуйте ещё раз. Было загадано слово "+ a1+". "
-		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
+	 ctx.fillStyle = "Red"
+		ctx.font = "20px Courier"
+		ctx.fillText(rr,10,10)
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
       var win = function(answer_arr){
 		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
-		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
+		ctx.fillStyle = "Red"
+		ctx.font = "20px Courier"
+		ctx.fillText(r,10,10)
 		}
 		win(a1);
         var cat="=^.^="
