@@ -39,7 +39,7 @@ table.gridtable td {
 	
 	
 </body>
-<canvas id = "canvas" width="100" height="100"></canvas>
+<canvas id = "canvas" width="200" height="200"></canvas>
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> 
 <input type="text" id="txt"/>
@@ -203,6 +203,7 @@ document.getElementById("btn").onclick = textext3;
         var cat="=^.^="
 		if (aaa===5||aaa===4){;
 		aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":o});
+		ctx.fillStyle = "Orange"
 		ctx.font = "20px Courier"
 		ctx.fillText(cat,10,110)
 		}else{
