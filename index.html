@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Угадай слово!!!</title>
+    <title>Угадай_слово!!!</title>
 	<style>table.gridtable {
 	font-family: verdana,arial,sans-serif;   
 	font-size:11px;
@@ -109,17 +109,18 @@ var aaa1 = [];
         ];
 var nickname1 = ""
 var answer1 = ""
+var textext3 = function(){
 if (nickname1 === ""){
 var nickname = document.getElementById("txt").value
 alert("Вас зовут " + nickname)
 nickname1 = nickname
-document.getElementById("btn").onclick = textext1;
 }else{
 var answer = document.getElementById("txt").value
 alert("Ваш ответ: " + answer)
 answer1 = answer
-document.getElementById("btn").onclick = textext2;
 }
+}
+document.getElementById("btn").onclick = textext3;
 	var pick = function(){
 	return a[Math.floor(Math.random() * a.length)];
 	}
