@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Угадай_слово!!!</title>
+    <title>Угадай слово!!!</title>
 	<style>table.gridtable {
 	font-family: verdana,arial,sans-serif;   
 	font-size:11px;
@@ -194,14 +194,14 @@ document.getElementById("btn").onclick = textext3;
          var rr= "К сожалению,вы проиграли. Попрбуйте ещё раз. Было загадано слово "+ a1+". "
 	 ctx.fillStyle = "Red"
 		ctx.font = "20px Courier"
-		ctx.fillText(rr,10,10)
+		ctx.fillText(rr,10,50)
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
       var win = function(answer_arr){
 		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
 		ctx.fillStyle = "Red"
 		ctx.font = "20px Courier"
-		ctx.fillText(r,10,10)
+		ctx.fillText(r,10,50)
 		}
 		win(a1);
         var cat="=^.^="
