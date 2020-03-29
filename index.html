@@ -118,23 +118,23 @@ var answer = document.getElementById("txt").value
 answer1 = answer
 }
 }
+var slovo = nickname1
+var a1 = slovo[0];
+var podskazka = slovo[1];
+var b = [];
+var setup = function(word){
+for (var i = 0; i < word.length; i++) {
+b[i] = "_ ";
+}
+}
+var c = a1.length;
+var aa = 0
+var XLaa=a1.length + 2
 if (nickname1 === ""){
 document.getElementById("btn").onclick = textext3;
 }else{
-        var slovo = nickname1
-        var a1 = slovo[0];
-        var podskazka = slovo[1];
-      var b = [];
+ setup(a1)  
 }
-	var setup = function(word){
-	   for (var i = 0; i < word.length; i++) {
-        b[i] = "_ ";
-	}
-	}
-	setup(a1)
-        var c = a1.length;
-        var aa = 0
-		var XLaa=a1.length + 2
         var aa1 = prompt("Как вас зовут?")
 		var aaa=aa1.length
         	var shoo = function(ant){
