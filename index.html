@@ -113,15 +113,16 @@ b[i] = "_ ";
 }
 }
 var shoo = function(ant){
-alert("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
+ctx.font = ("15px Arial")
+ctx.fillText("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв",10,10)
 Swal.fire({title:"Хорошая игра, " + nickname1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
 }
 var show = function(answer_arr){
 alert(answer_arr.join(""));
 }
-var get = function(){
-return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
-}
+//var get = function(){
+//return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
+//}
 var update = function(guess,word,answer_arr){
 for (var j = 0; j < 5; j++) {
 if (word[j] === guess.toLowerCase() && answer_arr[j] === "_ ") {
