@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Угадай_слово!!!</title>
+    <title>Угадай слово!!!</title>
 	<style>table.gridtable {
 	font-family: verdana,arial,sans-serif;   
 	font-size:11px;
@@ -39,10 +39,9 @@ table.gridtable td {
 	
 	
 </body>
-
 <canvas id = "canvas" width="1000" height="200"></canvas>
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> 
 <input type="text" id="txt"/>
 <input type="button" id="btn" value="Отправить">
 	<script>
@@ -108,11 +107,6 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
-var setup = function(word){
-for (var i = 0; i < word.length; i++) {
-b[i] = "_ ";
-}
-}
 var nickname1 = ""
 var answer1 = ""
 var textext3 = function(){
@@ -128,14 +122,23 @@ var slovo = a
 var a1 = slovo[0];
 var podskazka = slovo[1];
 var b = [];
-setup(a1)
+var setup = function(word){
+for (var i = 0; i < word.length; i++) {
+b[i] = "_ ";
+}
+}
 var c = a1.length;
 var aa = 0
 var XLaa=a1.length + 2
+if (nickname1 === ""){
+document.getElementById("btn").onclick = textext3;
+}else{
+ setup(a1)
 var aaa=nickname1.length
+}
         	var shoo = function(ant){
- 	alert("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
-     Swal.fire({title:"Хорошая игра, " + nickname1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
+ 	alert("Привет, " + aa1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
+     Swal.fire({title:"Хорошая игра, " + aa1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
 		}
 		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
@@ -194,7 +197,7 @@ var aaa=nickname1.length
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
       var win = function(answer_arr){
-		var r = "Поздравляю с победой, " + nickname1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
+		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
 		ctx.fillStyle = "Red"
 		ctx.font = "20px Courier"
 		ctx.fillText(r,10,50)
