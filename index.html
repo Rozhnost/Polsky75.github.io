@@ -108,6 +108,11 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
+var setup = function(word){
+for (var i = 0; i < word.length; i++) {
+b[i] = "_ ";
+}
+}
 var nickname1 = ""
 var answer1 = ""
 var textext3 = function(){
@@ -126,11 +131,6 @@ var slovo = a
 var a1 = slovo[0];
 var podskazka = slovo[1];
 var b = [];
-var setup = function(word){
-for (var i = 0; i < word.length; i++) {
-b[i] = "_ ";
-}
-}
 setup(a1)
 var c = a1.length;
 var aa = 0
