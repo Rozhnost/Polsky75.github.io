@@ -107,6 +107,29 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
+var setup = function(word){
+for (var i = 0; i < word.length; i++) {
+b[i] = "_ ";
+}
+}
+var shoo = function(ant){
+alert("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
+Swal.fire({title:"Хорошая игра, " + nickname1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
+}
+var show = function(answer_arr){
+alert(answer_arr.join(""));
+}
+var get = function(){
+return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
+}
+var update = function(guess,word,answer_arr){
+for (var j = 0; j < 5; j++) {
+if (word[j] === guess.toLowerCase() && answer_arr[j] === "_ ") {
+answer_arr[j] = guess.toLowerCase();
+c--;
+}
+}
+}
 var nickname1 = ""
 var answer1 = ""
 var textext3 = function(){
@@ -122,39 +145,16 @@ var slovo = a[Math.floor(Math.random()*a.length)]
 var a1 = slovo[0];
 var podskazka = slovo[1];
 var b = [];
-var setup = function(word){
-for (var i = 0; i < word.length; i++) {
-b[i] = "_ ";
-}
-}
 setup(a1)
 var aaa=nickname1.length
 var c = a1.length;
 var aa = 0
 var XLaa=a1.length + 2
 document.getElementById("btn").onclick = textext3;
-        	var shoo = function(ant){
- 	alert("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
-     Swal.fire({title:"Хорошая игра, " + nickname1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
-		}
 		shoo(a1);
         while (c > 0 && aa < a1.length + 2) {
-		var show = function(answer_arr){
-            alert(answer_arr.join(""));
-		}
 		show(b);
-		var get = function(){
-		return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
-		}
             var d = get()
-	    var update = function(guess,word,answer_arr){
- 	for (var j = 0; j < 5; j++) {
-                 if (word[j] === guess.toLowerCase() && answer_arr[j] === "_ ") {
-                     answer_arr[j] = guess.toLowerCase();
-                     c--;
-                 }
-	}
-	}
             if (d === null) {
 			var rrr="Вы вышли из игры. До новых встреч!"
 			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
