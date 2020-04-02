@@ -70,9 +70,25 @@
 	ctx.fillStyle = colour;
 	circle(centerX, centerY, blockSize/2, true)
 	}
-	ball.prototype.equal = function(otherBlock){
+	Block.prototype.equal = function(otherBlock){
 	return this.col === other.col && this.row === other.row
 	};
+	var Snake = function(){
+	this.cegments = [
+	new Block(7,5),
+	new Block(6,5),
+	new Block(5,5)
+	];
+	this.direction = "right";
+	this.nextDirection = "right";
+	};
+	Snake.prototype.draw = function(){
+	for (var i = 0; i < this.cegments.length; i++){
+	this.cegments[i].drawSquare("Blue");
+	}
+	};
+	var snake = newSnake();
+	snake.draw();
 	</script>
 </body>
 </html>
