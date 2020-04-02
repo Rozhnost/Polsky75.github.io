@@ -55,13 +55,7 @@
 	ctx.fillStyle = colour;
 	ctx.fillRect(x, y, blockSize, blockSize)
 	}
-	Block.prototype.drawCircle = function(colour){
-	var x = this.col * blockSize;
-	var y = this.row * blockSize;
-	ctx.fillStyle = colour;
-	ctx.fillRect(x, y, blockSize, blockSize)
-	}
-	var sampleBlock = new Block(4,5);
+	var sampleBlock = new Block(5,5);
 	sampleBlock.drawSquare("LightBlue")
 	</script>
 </body>
