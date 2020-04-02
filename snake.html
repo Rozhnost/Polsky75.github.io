@@ -104,6 +104,14 @@
 	gameOver();
 	return
 	}
+	this.cegments.unshift(newHead);
+	if (newHead.equal(apple.position)){
+	score++;
+	apple.move;
+	}else{
+	this.cegments.pop();
+	}
+	};
 	
 	</script>
 </body>
