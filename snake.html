@@ -16,6 +16,15 @@
 	var blockW = w/blockSize
 	var blockH = h/blockSize
 	var score = 0
+	var circle = function (x,y,radius,fillCircle) {
+  	ctx.beginPath();
+  	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+	if(fillCircle === true){
+    	ctx.fill();
+	}else{
+	ctx.stroke();
+	}
+  	}
 	var drawBorder = function(){
 	ctx.fillStyle = "Gray"
 	ctx.fillRect(0,0,w,blockSize)
@@ -55,8 +64,16 @@
 	ctx.fillStyle = colour;
 	ctx.fillRect(x, y, blockSize, blockSize)
 	}
-	var sampleBlock = new Block(5,5);
+	Block.prototype.drawCircle = function(colour){
+	var centerX = this.col * blockSize + blockSize/2;
+	var centerY = this.row * blockSize + blockSize/2;
+	ctx.fillStyle = colour;
+	ctx.fillRect(centerX, centerY, blockSize/2, true)
+	}
+	var sampleBlock = new Block(4,5);
+	var sampleCircle = new Block(5,4);
 	sampleBlock.drawSquare("LightBlue")
+	sampleBlock.drawCircle("LightGreen")
 	</script>
 </body>
 </html>
