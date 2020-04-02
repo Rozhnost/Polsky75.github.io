@@ -70,10 +70,9 @@
 	ctx.fillStyle = colour;
 	circle(centerX, centerY, blockSize/2, true)
 	}
-	var sampleBlock = new Block(4,5);
-	var sampleCircle = new Block(5,4);
-	sampleBlock.drawSquare("Blue")
-	sampleCircle.drawCircle("Green")
+	ball.prototype.equal = function(otherBlock){
+	return this.col === other.col && this.row === other.row
+	};
 	</script>
 </body>
 </html>
