@@ -49,7 +49,14 @@
 	this.col = col
 	this.row = row
 	};
+	Block.prototype.drawSquare = function(){
+	var x = this.col * blockSize;
+	var y = this.row * blockSize;
+	ctx.fillStyle = color;
+	ctx.fillRect(x, y, blockSize, blockSize)
+	}
 	var sampleBlock = newBlock(5,5);
+	sampleBlock.drawSquare("LightBlue")
 	</script>
 </body>
 </html>
