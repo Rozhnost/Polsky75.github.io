@@ -114,11 +114,15 @@ b[i] = "_ ";
 }
 var shoo = function(ant){
 ctx.font = ("15px Arial")
-ctx.fillText("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв",10,10)
 Swal.fire({title:"Хорошая игра, " + nickname1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
 }
 var show = function(answer_arr){
-alert(answer_arr.join(""));
+ctx.clearRect(0,0,200,1000)
+ctx.fillStyle = "Black"
+ctx.font = "15px Arial"
+ctx.fillText("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв",10,10)
+ctx.fillText(answer_arr.join(""),10,60)
+ctx.fillText("Ты можешь ввести одну букву или целое слово. \n У тебя 6 попыток. Удачи! ,10,110)
 }
 //var get = function(){
 //return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
@@ -137,11 +141,6 @@ var textext3 = function(){
 if (nickname1 === ""){
 var nickname = document.getElementById("txt").value
 nickname1 = nickname
-}else{
-var answer = document.getElementById("txt").value
-answer1 = answer
-}
-}
 var slovo = a[Math.floor(Math.random()*a.length)]
 var a1 = slovo[0];
 var podskazka = slovo[1];
@@ -151,36 +150,49 @@ var aaa=nickname1.length
 var c = a1.length;
 var aa = 0
 var XLaa=a1.length + 2
-document.getElementById("btn").onclick = textext3;
-		shoo(a1);
-        while (c > 0 && aa < a1.length + 2) {
-		show(b);
-            var d = get()
-            if (d === null) {
+shoo(a1);
+while (c > 0 && aa < a1.length + 2) {
+show(b);
+}else{
+var answer = document.getElementById("txt").value
+answer1 = answer
+while (c > 0 && aa < a1.length + 2) {
+show(b);
+           if (answer === null) {
 			var rrr="Вы вышли из игры. До новых встреч!"
 			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
                 break;
-            } else if (d.length !== 1 && d.toLowerCase() !== a1) {
+            } else if (answer.length !== 1 && answer.toLowerCase() !== a1) {
                 alert("Пожалуйста, введите одиночную букву.");
-            } else if (d.toLowerCase() === a1) {
+            } else if (answer.toLowerCase() === a1) {
                 break;
             } else {
-              update(d,a1,b)
+              update(answer,a1,b)
                 }
                 aa++;
 		if(aa===1){
 		ctx.strokeRect(920,10,20,20);
 		o--
 		}else if(aa===2){
+		ctx.strokeRect(920,10,20,20);
 		draw_points(massC);
 		o--
 		}else if(aa===3){
+		ctx.strokeRect(920,10,20,20);
+		draw_points(massC);
 		draw_points(massA);
 		o--
 		}else if(aa===4){
+		ctx.strokeRect(920,10,20,20);
+		draw_points(massC);
+		draw_points(massA);
 		draw_points(massB);
 		o--
 		}else{
+		ctx.strokeRect(920,10,20,20);
+		draw_points(massC);
+		draw_points(massA);
+		draw_points(massB);
 		draw_points(massD);
 		draw_points(massE);
 		o--
@@ -240,6 +252,11 @@ document.getElementById("btn").onclick = textext3;
 //java.io.File f = new java.io.File(aaa1)	
 	
 		document.getElementById("content").appendChild(buildTable(aaa1));
+}
+}
+document.getElementById("btn").onclick = textext3;
+            //var d = get()
+ 
 	
 	</script> 
 	
