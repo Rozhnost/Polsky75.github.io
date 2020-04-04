@@ -84,14 +84,14 @@
 	this.nextDirection = "right";
 	};
 	var choose = function(){
-	if (linker===1){
+	if (linker===0){
+	linker = 1
+	return
+	}else if (linker===1){
 	linker = 2
 	return
 	}else if (linker===2){
-	linker = 3
-	return
-	}else if (linker===3){
-	linker = 2
+	linker = 1
 	return
 	}
 	}
