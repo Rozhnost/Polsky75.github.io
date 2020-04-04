@@ -39,7 +39,6 @@
 	ctx.textBaseline = "top";
 	ctx.fillText("Счет: " + score,blockSize,blockSize)
 	}
-	drawBorder();
 	var gameOver = function(){
 	clearInterval(intervalId)
 	ctx.font = "60px courier";
@@ -149,9 +148,16 @@
 	var randomRow = Math.floor(Math.random()*(blockH-2))+1;
 	this.position = new Block(randomCol, randomRow)
 	};
-	var apple = new Apple
-	apple.move();
+	var snake = new Snake();
+	var apple = new Apple();
+	var intervalId = setInterval(function(){
+	ctx.clearRect(0,0,w,h)
+	drawScore();
+	snake.move();
+	snake.draw();
 	apple.draw();
+	drawBorder();
+	}, 100);
 	var dirrections = {
 	37: "left",
 	38: "up",
