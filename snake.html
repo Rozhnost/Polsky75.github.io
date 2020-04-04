@@ -70,7 +70,7 @@
 	circle(centerX, centerY, blockSize/2, true)
 	}
 	Block.prototype.equal = function(otherBlock){
-	return this.col === other.col && this.row === other.row
+	return this.col === otherBlock.col && this.row === otherBlock.row
 	};
 	var Snake = function(){
 	this.cegments = [
