@@ -105,14 +105,27 @@
 	return
 	}
 	this.cegments.unshift(newHead);
-	if (newHead.equal(apple.position)){
-	score++;
-	apple.move;
-	}else{
+	//if (newHead.equal(apple.position)){
+	//score++;
+	//apple.move;
+	//}else{
 	this.cegments.pop();
+	//}
+	//};
+	snake.prototype.checkCollision = function(head){
+	var leftCollision = (head.col === 0);
+	var topCollision = (head.row === 0);
+	var rightCollision = (head.col === blockW - 1)
+	var bottomCollision = (head.row === blockH - 1)
+	var wallCollision = leftCollision||topCollision||rightCollision||bottomCollision
+	var selfCollision = false;
+	for (var i = 0; i < this.cegments.length; i++){
+	if (head.equal(this.cegments[i])){
+		selfCollision = true
 	}
+	}
+	return wallCollision || selfCollision
 	};
-	
 	</script>
 </body>
 </html>
