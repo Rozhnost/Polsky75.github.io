@@ -103,7 +103,7 @@
 	if (this.checkCollision(newHead)){
 	gameOver();
 	return
-	}
+	};
 	this.cegments.unshift(newHead);
 	if (newHead.equal(apple.position)){
 	score++;
@@ -144,7 +144,13 @@
 	Apple.prototype.draw = function(){
 	this.position.drawCircle("limeGreen");
 	};
+	Apple.prototype.move = function(){
+	var randomCol = Math.floor(Math.random()*(blockW-2))+1;
+	var randomRow = Math.floor(Math.random()*(blockH-2))+1;
+	this.position = new Block(randomCol, randomRow)
+	};
 	var apple = new Apple
+	apple.move();
 	apple.draw();
 	var dirrections = {
 	37: "left",
