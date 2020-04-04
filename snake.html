@@ -19,6 +19,7 @@
 	var blockH = h/blockSize
 	var score = 0
 	var draw_points = function (massive,n) {
+	ctx.lineWidth = 2
 	for (var i = 0; i < massive.length;i++) {
 		ctx.beginPath();
 		ctx.moveTo(massive[i][0],massive[i][1]);
