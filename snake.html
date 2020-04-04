@@ -97,8 +97,9 @@
 	}
 	Snake.prototype.draw = function(){
 	for (var i = 0; i < this.cegments.length; i++){
-	this.cegments[i].drawSquare(colours[linker]);
-	choose();
+	//this.cegments[i].drawSquare(colours[linker]);
+	//choose();
+	this.cegments[i].drawSquare("lime");
 	}
 	};
 	Snake.prototype.move = function(){
