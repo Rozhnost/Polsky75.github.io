@@ -18,6 +18,17 @@
 	var blockW = w/blockSize
 	var blockH = h/blockSize
 	var score = 0
+	var draw_points = function (massive,n) {
+	for (var i = 0; i < massive.length;i++) {
+		ctx.beginPath();
+		ctx.moveTo(massive[i][0],massive[i][1]);
+		if(i+1<massive.length){
+		ctx.lineTo(massive[i+1][0],massive[i+1][1]);
+		ctx.stroke();
+		}
+		}
+	
+	}
 	var circle = function (x,y,radius,fillCircle) {
   	ctx.beginPath();
   	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
@@ -164,6 +175,7 @@
 	var randomRow = Math.floor(Math.random()*(blockH-2))+1;
 	this.position = new Block(randomCol, randomRow)
 	};
+	var L = [[525,265],[525,235],[530,245],[525,235],[535,245]]
 	var snake = new Snake();
 	var apple = new Apple();
 	var intervalId = setInterval(function(){
@@ -176,6 +188,7 @@
 	ctx.fillStyle = "Red"
 	circle(525,250,20,true)
 	circle(525,250,20,false)
+	draw_points(L)
 	ctx.fillStyle = "Blue"
 	circle(595,250,20,true)
 	circle(595,250,20,false)
