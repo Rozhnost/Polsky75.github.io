@@ -13,7 +13,7 @@
 	var w = canvas.width
 	var h = canvas.height
 	var colours = ["Red","Blue","Yellow"]
-	var linker = 1
+	var linker = 0
 	var blockSize = 10
 	var blockW = w/blockSize
 	var blockH = h/blockSize
@@ -83,14 +83,22 @@
 	this.direction = "right";
 	this.nextDirection = "right";
 	};
+	var choose = function(){
+	if (linker===1){
+	linker = 2
+	return
+	}else if (linker===2){
+	linker = 3
+	return
+	}else if (linker===3){
+	linker = 2
+	return
+	}
+	}
 	Snake.prototype.draw = function(){
 	for (var i = 0; i < this.cegments.length; i++){
 	this.cegments[i].drawSquare(colours[linker]);
-	if (linker===1 || linker===2){
-	linker++
-	}else{
-	linker--
-	}
+	choose();
 	}
 	};
 	Snake.prototype.move = function(){
