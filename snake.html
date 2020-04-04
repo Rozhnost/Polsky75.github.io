@@ -166,7 +166,7 @@
 	};
 	$("body").keydown(function(event){
 	var newDirrection = dirrections[event.keyCode];
-	if (newDirrection !== underfined){
+	if (newDirrection !== undefined){
 	snake.setDirrection(newDirrection)
 	}
 	});
