@@ -84,7 +84,8 @@
 	};
 	Snake.prototype.draw = function(){
 	for (var i = 0; i < this.cegments.length; i++){
-	this.cegments[i].drawSquare(colours[Math.floor(Math.random()*colours.length)]);
+	//this.cegments[i].drawSquare(colours[Math.floor(Math.random()*colours.length)]);
+	this.cegments[i].drawSquare("Blue");
 	}
 	};
 	Snake.prototype.move = function(){
