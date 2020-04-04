@@ -12,7 +12,8 @@
 	var ctx = canvas.getContext("2d");
 	var w = canvas.width
 	var h = canvas.height
-	var colours = ["Red","Blue","Green","Purple","Orange"]
+	var colours = ["Red","Blue","Yellow"]
+	var linker = 1
 	var blockSize = 10
 	var blockW = w/blockSize
 	var blockH = h/blockSize
@@ -84,8 +85,12 @@
 	};
 	Snake.prototype.draw = function(){
 	for (var i = 0; i < this.cegments.length; i++){
-	//this.cegments[i].drawSquare(colours[Math.floor(Math.random()*colours.length)]);
-	this.cegments[i].drawSquare("Blue");
+	this.cegments[i].drawSquare(colours[linker]);
+	if (linker===1 || linker===2){
+	linker++
+	}else{
+	linker--
+	}
 	}
 	};
 	Snake.prototype.move = function(){
