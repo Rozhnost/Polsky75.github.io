@@ -70,7 +70,7 @@
       var canvas = document.getElementById("canvas");
       var ctx = canvas.getContext("2d");
    
-
+var msg = ""; //Сообщение	
 
       var w =  canvas.width
       var h = canvas.height
@@ -240,8 +240,6 @@ function CheckAction()
    	 x: touchStart.x - touchPosition.x,
    	 y: touchStart.y - touchPosition.y
     };
-
-    var msg = ""; //Сообщение
 
     if(Math.abs(d.x) > Math.abs(d.y)) //Проверяем, движение по какой оси было длиннее
     {
