@@ -1,4 +1,5 @@
-<html><head>
+<html>
+<head>
 
      <meta charset="utf-8">
 
@@ -63,45 +64,39 @@
     
       <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
       <script>
-   	var canvas = document.getElementById("canvas");
-	var ctx = canvas.getContext("2d");
-	var w = canvas.weight
-	var h = canvas.height
-	var colours = ["Red","Blue","Yellow"]
-	var linker = 0
-	var blockSize = 6
-	var blockW = w/blockSize
-	var blockH = h/blockSize
-	var score = 0
-	var draw_points = function (massive,n) {
-	ctx.lineWidth = 2
-	for (var i = 0; i < massive.length;i++) {
-		ctx.beginPath();
-		ctx.moveTo(massive[i][0],massive[i][1]);
-		if(i+1<massive.length){
-		ctx.lineTo(massive[i+1][0],massive[i+1][1]);
-		ctx.stroke();
-		}
-		}
-	
-	}
-	var circle = function (x,y,radius,fillCircle) {
-  	ctx.beginPath();
-  	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-	if(fillCircle === true){
-    	ctx.fill();
-	}else{
-	ctx.stroke();
-	}
-  	}
-	var drawBorder = function(){
-	ctx.fillStyle = "Gray"
-	ctx.fillRect(0,0,w,blockSize)
-	ctx.fillRect(0,h-blockSize,w,blockSize)
-	ctx.fillRect(0,0,blockSize,h)
-	ctx.fillRect(w-blockSize,0,blockSize,h)
-	};
-	 var drawScore = function(){
+
+    
+
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+   
+
+
+      var w =  canvas.width
+      var h = canvas.height
+      var colours = ["Red","Blue","Yellow"]
+      var linker = 0
+      var blockSize = 6
+      var blockW = w/blockSize
+      var blockH = h/blockSize
+      var score = 0
+      var circle = function (x,y,radius,fillCircle) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+      if(fillCircle === true){
+          ctx.fill();
+      }else{
+      ctx.stroke();
+      }
+      }
+      var drawBorder = function(){
+      ctx.fillStyle = "Gray"
+      ctx.fillRect(0,0,w,blockSize)
+      ctx.fillRect(0,h-blockSize,w,blockSize)
+      ctx.fillRect(0,0,blockSize,h)
+      ctx.fillRect(w-blockSize,0,blockSize,h)
+      };
+      var drawScore = function(){
       ctx.font = "1em courier";
       ctx.fillStyle = "Black";
       ctx.textAlign = "Left";
@@ -116,53 +111,148 @@
       ctx.textBaseline = "middle";
       ctx.fillText("Конец игры", w/2, h/2);
       }
-	//var xScore = setInterval(function(){
-	//ctx.clearRect(0,0,w,h)
-	//score++
-	//drawBorder();
-	//drawScore();
-	//}, 100)
-	var Block = function (col,row){
-	this.col = col
-	this.row = row
-	};
-	Block.prototype.drawSquare = function(colour){
-	var x = this.col * blockSize;
-	var y = this.row * blockSize;
-	ctx.fillStyle = colour;
-	ctx.fillRect(x, y, blockSize, blockSize)
-	}
-	Block.prototype.drawCircle = function(colour){
-	var centerX = this.col * blockSize + blockSize/2;
-	var centerY = this.row * blockSize + blockSize/2;
-	ctx.fillStyle = colour;
-	circle(centerX, centerY, blockSize/2, true)
-	}
-	Block.prototype.equal = function(otherBlock){
-	return this.col === otherBlock.col && this.row === otherBlock.row
-	};
-	var Snake = function(){
-	this.cegments = [
-	new Block(7,5),
-	new Block(6,5),
-	new Block(5,5)
-	];
-	this.direction = "right";
-	this.nextDirection = "right";
-	};
-	var choose = function(){
-	if (linker===0){
-	linker = 1
-	return
-	}else if (linker===1){
-	linker = 2
-	return
-	}else if (linker===2){
-	linker = 0
-	return
-	}
-	}
-	//Чувствительность — количество пикселей, после которого жест будет считаться свайпом
+      //var xScore = setInterval(function(){
+      //ctx.clearRect(0,0,w,h)
+      //score++
+      //drawBorder();
+      //drawScore();
+      //}, 100)
+      var Block = function (col,row){
+      this.col = col
+      this.row = row
+      };
+      Block.prototype.drawSquare = function(colour){
+      var x = this.col * blockSize;
+      var y = this.row * blockSize;
+      ctx.fillStyle = colour;
+      ctx.fillRect(x, y, blockSize, blockSize)
+      }
+      Block.prototype.drawCircle = function(colour){
+      var centerX = this.col * blockSize + blockSize/2;
+      var centerY = this.row * blockSize + blockSize/2;
+      ctx.fillStyle = colour;
+      circle(centerX, centerY, blockSize/2, true)
+      }
+      Block.prototype.equal = function(otherBlock){
+      return this.col === otherBlock.col && this.row === otherBlock.row
+      };
+      var Snake = function(){
+      this.cegments = [
+      new Block(7,5),
+      new Block(6,5),
+      new Block(5,5)
+      ];
+      this.direction = "right";
+      this.nextDirection = "right";
+      };
+      var choose = function(){
+      if (linker===0){
+      linker = 1
+      return
+      }else if (linker===1){
+      linker = 2
+      return
+      }else if (linker===2){
+      linker = 0
+      return
+      }
+      }
+      Snake.prototype.draw = function(){
+      for (var i = 0; i < this.cegments.length; i++){
+      //this.cegments[i].drawSquare(colours[linker]);
+      //choose();
+      this.cegments[i].drawSquare("lime");
+      }
+      };
+      Snake.prototype.move = function(){
+      var head = this.cegments[0];
+      var newHead;
+      this.direction = this.nextDirection
+      if (this.direction === "right") {
+      newHead = new Block(head.col + 1, head.row);
+      } else if (this.direction === "down") {
+      newHead = new Block(head.col, head.row + 1);
+      } else if (this.direction === "left") {
+      newHead = new Block(head.col - 1, head.row);
+      } else if (this.direction === "up") {
+      newHead = new Block(head.col, head.row - 1);
+      };
+      if (this.checkCollision(newHead)){
+      gameOver();
+      return
+      };
+      this.cegments.unshift(newHead);
+      if (newHead.equal(apple.position)){
+      score++;
+      apple.move();
+      }else{
+      this.cegments.pop();
+      }
+      };
+      Snake.prototype.checkCollision = function(head){
+      var leftCollision = (head.col === 0);
+      var topCollision = (head.row === 0);
+      var rightCollision = (head.col === blockW - 1)
+      var bottomCollision = (head.row === blockH - 1)
+      var wallCollision = leftCollision||topCollision||rightCollision||bottomCollision
+      var selfCollision = false;
+      for (var i = 0; i < this.cegments.length; i++){
+      if (head.equal(this.cegments[i])){
+          selfCollision = true
+      }
+      }
+      return wallCollision || selfCollision
+      };
+      Snake.prototype.setDirection = function(newDirection){
+      if (this.direction==="up" && newDirection==="down"){
+      return;
+      }else if (this.direction==="right" && newDirection==="left"){
+      return;
+      }else if (this.direction==="down" && newDirection==="up"){
+      return;
+      }else if (this.direction==="left" && newDirection==="right"){
+      return;
+      }
+      this.nextDirection = newDirection;
+      };
+      var Apple = function(){
+      this.position = new Block(10,10);
+      };
+      Apple.prototype.draw = function(){
+      this.position.drawCircle("limeGreen");
+      };
+      Apple.prototype.move = function(){
+      var randomCol = Math.floor(Math.random()*(blockW-2))+1;
+      var randomRow = Math.floor(Math.random()*(blockH-2))+1;
+      this.position = new Block(randomCol, randomRow)
+      };
+      var snake = new Snake();
+      var apple = new Apple();
+      var intervalId = setInterval(function(){
+      ctx.clearRect(0,0,w,h)
+      drawScore();
+      snake.move();
+      snake.draw();
+      apple.draw();
+      drawBorder();
+      circle(420,250,10)
+      }, 100);
+      var directions = {
+      37: "left",
+      38: "up",
+      39: "right",
+      40: "down"
+      };
+      $("body").keydown(function(event){
+      var newDirection = directions[event.keyCode];
+      if (newDirection !== undefined){
+      snake.setDirection(newDirection)
+      }
+      });
+
+
+
+//Чувствительность — количество пикселей, после которого жест будет считаться свайпом
 const sensitivity = 20;
 
 //Получение поля, в котором будут выводиться сообщения
@@ -210,155 +300,45 @@ function CheckAction()
 {
     var d = //Получаем расстояния от начальной до конечной точек по обеим осям
     {
-     x: touchStart.x - touchPosition.x,
-     y: touchStart.y - touchPosition.y
+   	 x: touchStart.x - touchPosition.x,
+   	 y: touchStart.y - touchPosition.y
     };
 
     var msg = ""; //Сообщение
 
     if(Math.abs(d.x) > Math.abs(d.y)) //Проверяем, движение по какой оси было длиннее
     {
-     if(Math.abs(d.x) > sensitivity) //Проверяем, было ли движение достаточно длинным
-     {
-       if(d.x > 0) //Если значение больше нуля, значит пользователь двигал пальцем справа налево
-       {
-         msg = "Swipe left";
-       }
-       else //Иначе он двигал им слева направо
-       {
-         msg = "Swipe right";
-       }
-     }
+   	 if(Math.abs(d.x) > sensitivity) //Проверяем, было ли движение достаточно длинным
+   	 {
+   		 if(d.x > 0) //Если значение больше нуля, значит пользователь двигал пальцем справа налево
+   		 {
+   			 msg = "Swipe Left";
+   		 }
+   		 else //Иначе он двигал им слева направо
+   		 {
+   			 msg = "Swipe Right";
+   		 }
+   	 }
     }
     else //Аналогичные проверки для вертикальной оси
     {
-     if(Math.abs(d.y) > sensitivity)
-     {
-       if(d.y > 0) //Свайп вверх
-       {
-         msg = "Swipe up";
-       }
-       else //Свайп вниз
-       {
-         msg = "Swipe down";
-       }
-     }
+   	 if(Math.abs(d.y) > sensitivity)
+   	 {
+   		 if(d.y > 0) //Свайп вверх
+   		 {
+   			 msg = "Swipe up";
+   		 }
+   		 else //Свайп вниз
+   		 {
+   			 msg = "Swipe down";
+   		 }
+   	 }
     }
 
     msgBox.innerText = msg; //Выводим сообщение
 
 }
-	Snake.prototype.draw = function(){
-	for (var i = 0; i < this.cegments.length; i++){
-	//this.cegments[i].drawSquare(colours[linker]);
-	//choose();
-	this.cegments[i].drawSquare("lime");
-	}
-	};
-	Snake.prototype.move = function(){
-	var head = this.cegments[0];
-	var newHead;
-	this.direction = this.nextDirection
-	if (this.direction === "right") {
-	newHead = new Block(head.col + 1, head.row);
-	} else if (this.direction === "down") {
-	newHead = new Block(head.col, head.row + 1);
-	} else if (this.direction === "left") {
-	newHead = new Block(head.col - 1, head.row);
-	} else if (this.direction === "up") {
-	newHead = new Block(head.col, head.row - 1);
-	};
-	if (this.checkCollision(newHead)){
-	gameOver();
-	return
-	};
-	this.cegments.unshift(newHead);
-	if (newHead.equal(apple.position)){
-	score++;
-	apple.move();
-	}else{
-	this.cegments.pop();
-	}
-	};
-	Snake.prototype.checkCollision = function(head){
-	var leftCollision = (head.col === 0);
-	var topCollision = (head.row === 0);
-	var rightCollision = (head.col === blockW - 1)
-	var bottomCollision = (head.row === blockH - 1)
-	var wallCollision = leftCollision||topCollision||rightCollision||bottomCollision
-	var selfCollision = false;
-	for (var i = 0; i < this.cegments.length; i++){
-	if (head.equal(this.cegments[i])){
-		selfCollision = true
-	}
-	}
-	return wallCollision || selfCollision
-	};
-	Snake.prototype.setDirection = function(newDirection){
-	if (this.direction==="up" && newDirection==="down"){
-	return;
-	}else if (this.direction==="right" && newDirection==="left"){
-	return;
-	}else if (this.direction==="down" && newDirection==="up"){
-	return;
-	}else if (this.direction==="left" && newDirection==="right"){
-	return;
-	}
-	this.nextDirection = newDirection;
-	};
-	var Apple = function(){
-	this.position = new Block(10,10);
-	};
-	Apple.prototype.draw = function(){
-	this.position.drawCircle("limeGreen");
-	};
-	Apple.prototype.move = function(){
-	var randomCol = Math.floor(Math.random()*(blockW-2))+1;
-	var randomRow = Math.floor(Math.random()*(blockH-2))+1;
-	this.position = new Block(randomCol, randomRow)
-	};
-	//var L = [[540,250],[510,250],[520,245],[510,250],[520,255]]
-	//var R = [[580,250],[610,250],[600,245],[610,250],[600,255]]
-	//var U = [[560,230],[560,200],[555,210],[560,200],[565,210]]
-	//var D = [[560,270],[560,300],[555,290],[560,300],[565,290]]
-	var snake = new Snake();
-	var apple = new Apple();
-	var intervalId = setInterval(function(){
-	ctx.clearRect(0,0,w,h)
-	drawScore();
-	snake.move();
-	snake.draw();
-	apple.draw();
-	drawBorder();
-	//ctx.fillStyle = "Red"
-	//circle(525,250,20,true)
-	//circle(525,250,20,false)
-	//draw_points(L)
-	//ctx.fillStyle = "Blue"
-	//circle(595,250,20,true)
-	//circle(595,250,20,false)
-	//draw_points(R)
-	//ctx.fillStyle = "Fuchsia"
-	//circle(560,215,20,true)
-	//circle(560,215,20,false)
-	//draw_points(U)
-	//ctx.fillStyle = "Orange"
-	//circle(560,285,20,true)
-	//circle(560,285,20,false)
-	//draw_points(D)
-	}, 100);
-	var directions = {
-	37: "left",
-	38: "up",
-	39: "right",
-	40: "down"
-	};
-	$("body").keydown(function(event){
-	var newDirection = directions[event.keyCode];
-	if (newDirection !== undefined){
-	snake.setDirection(newDirection)
-	}
-	});
-	</script>
-</body>
-</html>
+
+      </script>
+  
+  </body></html>
