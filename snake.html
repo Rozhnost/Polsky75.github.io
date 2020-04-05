@@ -1,13 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title id="str">Ешь яблоки!</title>
-</head>
-<body>
-  <canvas id = "canvas" width = "700" height = "500"></canvas> 
-	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-	<script>
+<html><head>
+
+     <meta charset="utf-8">
+
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+   	 <meta name="apple-mobile-web-app-capable" content="yes">
+   	 <meta name="mobile-web-app-capable" content="yes">
+   	 <meta name="HandheldFriendly" content="true">
+      <title id="str">Ешь яблоки!</title>
+    <style> body, html
+{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: arial;
+    background: #f7f7f7;
+    color: #373737;
+}
+
+.wrapper
+{
+    width: 100%;
+}
+
+.canvas
+{
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.info
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+}
+
+.info__content
+{
+    padding: 5px;
+      } 
+     </style>
+  </head>
+  <body>
+  
+    
+    <div class="wrapper">
+   		 <canvas id="canvas" class="canvas"></canvas>
+   	 </div>
+   	 <div class="info">
+   		 <div class="info__content">
+   			 <b>Last action: </b> <span id="msg-box"></span>
+   		 </div>
+   	 </div>
+    
+      <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+      <script>
    	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 	var w = 500
