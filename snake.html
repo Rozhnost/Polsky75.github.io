@@ -262,10 +262,10 @@ function CheckAction()
 	var randomRow = Math.floor(Math.random()*(blockH-2))+1;
 	this.position = new Block(randomCol, randomRow)
 	};
-	var L = [[540,250],[510,250],[520,245],[510,250],[520,255]]
-	var R = [[580,250],[610,250],[600,245],[610,250],[600,255]]
-	var U = [[560,230],[560,200],[555,210],[560,200],[565,210]]
-	var D = [[560,270],[560,300],[555,290],[560,300],[565,290]]
+	//var L = [[540,250],[510,250],[520,245],[510,250],[520,255]]
+	//var R = [[580,250],[610,250],[600,245],[610,250],[600,255]]
+	//var U = [[560,230],[560,200],[555,210],[560,200],[565,210]]
+	//var D = [[560,270],[560,300],[555,290],[560,300],[565,290]]
 	var snake = new Snake();
 	var apple = new Apple();
 	var intervalId = setInterval(function(){
@@ -275,22 +275,22 @@ function CheckAction()
 	snake.draw();
 	apple.draw();
 	drawBorder();
-	ctx.fillStyle = "Red"
-	circle(525,250,20,true)
-	circle(525,250,20,false)
-	draw_points(L)
-	ctx.fillStyle = "Blue"
-	circle(595,250,20,true)
-	circle(595,250,20,false)
-	draw_points(R)
-	ctx.fillStyle = "Fuchsia"
-	circle(560,215,20,true)
-	circle(560,215,20,false)
-	draw_points(U)
-	ctx.fillStyle = "Orange"
-	circle(560,285,20,true)
-	circle(560,285,20,false)
-	draw_points(D)
+	//ctx.fillStyle = "Red"
+	//circle(525,250,20,true)
+	//circle(525,250,20,false)
+	//draw_points(L)
+	//ctx.fillStyle = "Blue"
+	//circle(595,250,20,true)
+	//circle(595,250,20,false)
+	//draw_points(R)
+	//ctx.fillStyle = "Fuchsia"
+	//circle(560,215,20,true)
+	//circle(560,215,20,false)
+	//draw_points(U)
+	//ctx.fillStyle = "Orange"
+	//circle(560,285,20,true)
+	//circle(560,285,20,false)
+	//draw_points(D)
 	}, 100);
 	var directions = {
 	37: "left",
