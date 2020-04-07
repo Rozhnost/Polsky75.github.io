@@ -1,11 +1,12 @@
+  
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <title>Угадай_слово!!!</title>
+    <title>Виселица!</title>
 	<style>table.gridtable {
-	font-family: verdana,arial,sans-serif;   
+	font-family: verdana,arial,sans-serif;
 	font-size:11px;
 	color:#333333;
 	border-width: 1px;
@@ -39,45 +40,43 @@ table.gridtable td {
 	
 	
 </body>
-<canvas id = "canvas" width="1000" height="200"></canvas>
+<canvas id = "canvas" width="200" height="200"></canvas>
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> 
-<input type="text" id="txt"/>
-<input type="button" id="btn" onclick="textext3()" value="Отправить">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<script>
 			var canvas = document.getElementById("canvas")
 		var ctx= canvas.getContext("2d")
 	ctx.lineWidth = 4;
 	ctx.strokeStyle = "Black"
-	ctx.fillStyle = "Black" 
+	ctx.fillStyle = "Black"
 	var draw_points = function (massive,n) {
 		for (var i = 0; i < massive.length;i++) {
 			ctx.beginPath();
-			ctx.moveTo(massive[i][0],massive[i][1]);
+			ctx.moveTo(massive[i][0],massive[i][1])
 			if(i+1<massive.length){
-			ctx.lineTo(massive[i+1][0],massive[i+1][1]);
+			ctx.lineTo(massive[i+1][0],massive[i+1][1])
 			ctx.stroke();
 			}
 			else if (n===1){
-			ctx.lineTo(massive[0][0],massive[0][1]);
+			ctx.lineTo(massive[0][0],massive[0][1])
 			ctx.stroke();
 			}
 		}
 	
 	}
 	var circle = function (x,y,radius,fillCircle) {
-	ctx.fillStyle = "Purple";
-	ctx.strokeStyle = "Black";
-	ctx.lineWidth = 2;
+	ctx.fillStyle = "Purple"
   	ctx.beginPath();
   	ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    	ctx.fill();
     	ctx.stroke();
   	}
-	var massA=[[930,60],[915,90]];
-	var massB=[[930,60],[945,90]];
-	var massC=[[930,30],[930,60]];
-	var massD=[[930,40],[910,35]];
-	var massE=[[930,40],[950,35]];
+  	}
+	var massA=[[30,60],[15,90]]
+	var massB=[[30,60],[45,90]]
+	var massC=[[30,30],[30,60]]
+	var massD=[[30,40],[10,35]]
+	var massE=[[30,40],[50,35]]
 	var now = new Date();
 	var o = 5;
 //var formated_date = now.format("yyyy-mm-dd HH:mm");
@@ -107,89 +106,72 @@ var aaa1 = [];
             ["телефон", "Через поле и лесок подается голосок.\n Он бежит по проводам — Скажешь здесь, а слышно там."],
 	    ["свинья","Ходит с визгом,\n Грязь разбрызгав."]		
         ];
-var b = [];
-var setup = function(word){
-for (var i = 0; i < word.length; i++) {
-b[i] = "_ ";
-}
-}
-var shoo = function(ant){
-ctx.font = ("15px Arial")
-}
-var show = function(answer_arr){
-ctx.clearRect(0,0,200,1000)
-ctx.fillStyle = "Black"
-ctx.font = "15px Arial"
-ctx.fillText("Привет, " + nickname1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв",10,10)
-ctx.fillText(answer_arr.join(""),10,60)
-ctx.fillText("Ты можешь ввести одну букву или целое слово. \n У тебя 6 попыток. Удачи!" ,10,110)
-}
-//var get = function(){
-//return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
-//}
-var update = function(guess,word,answer_arr){
-for (var j = 0; j < 5; j++) {
-if (word[j] === guess.toLowerCase() && answer_arr[j] === "_ ") {
-answer_arr[j] = guess.toLowerCase();
-c--;
-}
-}
-}
-var nickname1 = ""
-var answer1 = ""
-function textext3() {
-if (nickname1 === ""){
-var nickname = document.getElementById("txt").value
-nickname1 = nickname
-var slovo = a[Math.floor(Math.random()*a.length)]
-var a1 = slovo[0];
-var podskazka = slovo[1];
-setup(a1)
-var aaa=nickname1.length
-var c = a1.length;
-var aa = 0
-var XLaa=a1.length + 2
-shoo(a1);
-}else{
-if(c > 0 && aa < a1.length + 2) {
-show(b);
-var answer = document.getElementById("txt").value
-answer1 = answer
-if (c > 0 && aa < a1.length + 2) {
-show(b);
-           if (answer === null) {
-console.log ("Муууу!!!")
-            } else if (answer.length !== 1 && answer.toLowerCase() !== a1) {
+	circle(15,100,10)
+	var pick = function(){
+	return a[Math.floor(Math.random() * a.length)];
+	}
+        var slovo = pick()
+        var a1 = slovo[0];
+        var podskazka = slovo[1];
+      var b = [];
+	var setup = function(word){
+	   for (var i = 0; i < word.length; i++) {
+        b[i] = "_ ";
+	}
+	}
+	setup(a1)
+        var c = a1.length;
+        var aa = 0
+		var XLaa=a1.length + 2
+        var aa1 = prompt("Как вас зовут?")
+		var aaa=aa1.length
+        	var shoo = function(ant){
+ 	alert("Привет, " + aa1 + "! "+ "Подсказка:\n" + podskazka + "\nВ слове " + ant.length + " букв")
+     Swal.fire({title:"Хорошая игра, " + aa1 + "!",text: "Чтобы обновить страницу, нажмите F5",type: "info",confirmButtonText:"Сыграем ещё?"})
+		}
+		shoo(a1);
+        while (c > 0 && aa < a1.length + 2) {
+		var show = function(answer_arr){
+            alert(answer_arr.join(""));
+		}
+		show(b);
+		var get = function(){
+		return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.")
+		}
+            var d = get()
+	    var update = function(guess,word,answer_arr){
+ 	for (var j = 0; j < 5; j++) {
+                 if (word[j] === guess.toLowerCase() && answer_arr[j] === "_ ") {
+                     answer_arr[j] = guess.toLowerCase();
+                     c--;
+                 }
+	}
+	}
+            if (d === null) {
+			var rrr="Вы вышли из игры. До новых встреч!"
+			$("#x").text(rrr).css({ 'color': 'red', 'font-size': '16px' });
+                break;
+            } else if (d.length !== 1 && d.toLowerCase() !== a1) {
                 alert("Пожалуйста, введите одиночную букву.");
-            } else if (answer.toLowerCase() === a1) {
-                return
+            } else if (d.toLowerCase() === a1) {
+                break;
             } else {
-              update(answer,a1,b)
+              update(d,a1,b)
                 }
                 aa++;
 		if(aa===1){
-		ctx.strokeRect(920,10,20,20);
+		ctx.strokeRect(20,10,20,20);
 		o--
 		}else if(aa===2){
-		ctx.strokeRect(920,10,20,20);
 		draw_points(massC);
 		o--
 		}else if(aa===3){
-		ctx.strokeRect(920,10,20,20);
-		draw_points(massC);
 		draw_points(massA);
 		o--
 		}else if(aa===4){
-		ctx.strokeRect(920,10,20,20);
-		draw_points(massC);
-		draw_points(massA);
 		draw_points(massB);
 		o--
 		}else{
-		ctx.strokeRect(920,10,20,20);
-		draw_points(massC);
-		draw_points(massA);
-		draw_points(massB);
 		draw_points(massD);
 		draw_points(massE);
 		o--
@@ -198,34 +180,25 @@ console.log ("Муууу!!!")
         var str = b.join('');
         if (str.toLowerCase() !== a1.toLowerCase() && d.toLowerCase() !== a1.toLowerCase()) {
          var rr= "К сожалению,вы проиграли. Попрбуйте ещё раз. Было загадано слово "+ a1+". "
-	 ctx.fillStyle = "Red"
-		ctx.font = "20px Courier"
-		ctx.fillText(rr,10,50)
+		 	$("#x").text(rr).css({ 'color': 'red', 'font-size': '16px' });
 			aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":0});
         } else {
-      var win = function(answer_arr){
-		var r = "Поздравляю с победой, " + nickname1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
-		ctx.fillStyle = "Red"
-		ctx.font = "20px Courier"
-		ctx.fillText(r,10,50)
+                var win = function(answer_arr){
+		var r = "Поздравляю с победой, " + aa1 + "! Было загадано слово " +answer_arr +". Вы набрали " + o + " очков!"
+		$("#x").text(r).css({ 'color': 'red', 'font-size': '16px' });
 		}
 		win(a1);
         var cat="=^.^="
-		if (aaa===5||aaa===4){
-		aaa1.push({"Дата":now.toLocaleString(),"Имя":nickname1,"Очки":o});
-		ctx.fillStyle = "Orange"
-		ctx.font = "20px Courier"
-		ctx.fillText(cat,10,110)
+		if (aaa===5||aaa===4){;
+		aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":o});
+		$("#y").text(cat).css({ 'color': 'orange', 'font-size': '20px' });
 		}else{
-		aaa1.push({"Дата":now.toLocaleString(),"Имя":nickname1,"Очки":o});
+		aaa1.push({"Дата":now.toLocaleString(),"Имя":aa1,"Очки":o});
+		$("#y").text("   ").css({ 'color': 'orange', 'font-size': '20px' });
         }
 	}
-	}
-}
-}
-document.getElementById("btn").onclick = textext3;
-            //var d = get()
- 	function buildTable(data) {
+	
+	function buildTable(data) {
     var table = document.createElement("table");
     table.className="gridtable";
     var thead = document.createElement("thead");
@@ -254,6 +227,6 @@ document.getElementById("btn").onclick = textext3;
 	
 		document.getElementById("content").appendChild(buildTable(aaa1));
 	
-	</script> 
+	</script>
 	
 </html>
