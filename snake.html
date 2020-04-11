@@ -69,7 +69,7 @@
 
       var canvas = document.getElementById("canvas");
       var ctx = canvas.getContext("2d");
-   
+      var mode = confirm("Нажмите ОТМЕНА, чтобы сыграть в лёгкий режим, или ОК, чтобы сыграть в сложный.")
 var msg = ""; //Сообщение	
 
       var w =  canvas.width
@@ -328,8 +328,12 @@ function CheckAction()
       this.position.drawCircle("red");
       };
       Apple.prototype.move = function(){
+      if (mode===false){
       var randomCol = Math.floor(Math.random()*(blockW-2))+1;
       var randomRow = Math.floor(Math.random()*(blockH-2))+1;
+      }else{
+      var randomCol = Math.floor(Math.random()*(blockW-4))+2;
+      var randomRow = Math.floor(Math.random()*(blockH-4))+2;
       this.position = new Block(randomCol, randomRow)
       };
       var snake = new Snake();
