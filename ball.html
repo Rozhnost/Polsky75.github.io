@@ -1,0 +1,517 @@
+<html>
+<head>
+     <meta charset="utf-8">
+      <title id="str">Колобудудудудущ и Колобыня</title>
+    </head>
+    <body>
+      <canvas id = "canvas" width="700" height="500"></canvas>
+      <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+      <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      var w = 400
+      var h = 400
+      var underground = 0
+      var inRight = 0
+      var draw = true
+      var start = false
+      var location = 0
+      var circle = function (x,y,radius,fillCircle) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+      if(fillCircle === true){
+      ctx.fill();
+      }else{
+      ctx.stroke();
+      }
+      }
+      var st = function(){
+        start = true
+      }
+      var Kolobudududush = function(){
+        this.x = 10
+        this.y = h-10-underground
+        this.canJump = true
+      }
+      var drawFloor = function(colour){
+        ctx.fillStyle = colour
+        ctx.fillRect(0,h-10-underground,w,10)
+        ctx.fillRect(0,0-underground,w,10)                                                             
+      }
+      var drawLeft = function(colour){
+        ctx.fillStyle = colour
+        ctx.fillRect(0,0-underground,10,h)
+        }
+      var drawRight = function(colour){
+        ctx.fillStyle = colour
+        ctx.fillRect(w-10,0-underground,10,h)
+        }
+        var floor = false
+      drawFloor("DeepSkyBlue")
+     Kolobudududush.prototype.draw = function() {
+       ctx.fillStyle = "RoyalBlue"
+       circle(this.x+10,this.y-10,10,true)
+       circle(this.x+10,this.y-10,10,false)
+       ctx.fillStyle = "BlAcK"
+       circle(this.x+5,this.y-10,3,true)
+       circle(this.x+15,this.y-10,3,true)
+     };
+      Kolobudududush.prototype.nnn = "r"
+     Kolobudududush.prototype.jump = function(){
+           for(var i = 0;i < 15; i++){
+        if (this.nnn==="r") {
+        this.y = this.y-1
+        this.x++
+        if(draw===true){
+        this.draw();
+      }
+        if (this.y<30) {
+          this.y = 30
+        }
+          if (this.x>370) {
+          this.x = 370
+        }
+        if ((this.x>100&&this.x<105)&&this.y>230){
+          this.x = 99
+        }
+        if (this.x === 165) {
+          this.x = 166
+        }
+       }else{
+        this.y = this.y-1
+        this.x--
+        if(draw===true){
+        this.draw();
+      }
+        if (this.y<30) {
+          this.y = 30
+        }
+          if (this.x<10) {
+          this.x = 10
+        }
+          if ((this.x>125&&this.x<130)&&this.y>230){
+          this.x = 131
+        } 
+      }
+    }
+     }
+     var polet = 0
+     Kolobudududush.canThrow = false
+     Kolobudududush.prototype.move = function(dir){
+      if(dir==="right" && this.x!==370 && (this.x!==100||this.y<=230-underground)&&(this.x!==240||this.y<250-underground||tump===true)&&(this.y<460-underground||this.y>800-underground||this.x!==150)){
+        this.x = this.x+1
+        this.nnn = "r"
+      }else if(dir==="left" && this.x!==10 && (this.x!==130||this.y<=230-underground)&&(this.x!==280||this.y<250-underground||tump===true)){
+        this.x = this.x-1
+        this.nnn = "l"
+      }else if(dir==="up"&& this.y!==30){
+      if(this.canJump===true){
+      this.jump()
+    }
+  }else if (dir==="throw" && blueStones>0) {
+    blueStones--
+    this.canThrow = true
+      }else{
+        if(draw===true){
+        this.draw();
+      }
+     }
+   }
+       var Kolobinya = function(){
+        this.x = 40
+        this.y = h-10-underground
+        this.canJump = true
+      }
+      drawFloor("DeepSkyBlue")
+     Kolobinya.prototype.draw = function() {
+       ctx.fillStyle = "DeepPink"
+       circle(this.x+10,this.y-10,10,true)
+       circle(this.x+10,this.y-10,10,false)
+       ctx.fillStyle = "BlAcK"
+       circle(this.x+5,this.y-10,3,true)
+       circle(this.x+15,this.y-10,3,true)
+     };
+      var nnn = "r"
+     Kolobinya.prototype.jump = function(){
+           for(var i = 0;i < 15; i++){
+        if (nnn==="r") {
+        this.y = this.y-1
+        this.x++
+        if(draw===true){
+        this.draw();
+      }
+        if (this.y<30) {
+          this.y = 30
+        }
+          if (this.x>370) {
+          this.x = 370
+        }
+        if ((this.x>100&&this.x<105)&&this.y>230){
+          this.x = 99
+        }
+        if (this.x === 165) {
+          this.x = 166
+        }
+      }else if(nnn==="l"){
+        this.y = this.y-1
+        this.x--
+        if(draw===true){
+        this.draw();
+      }
+        if (this.y<30) {
+          this.y = 30
+        }
+          if (this.x<10) {
+          this.x = 10
+        }
+          if ((this.x>125&&this.x<130)&&this.y>230){
+          this.x = 131
+        }
+      }else{
+         this.y--
+         if(draw===true){
+        this.draw();
+      }
+        if ((this.x>100&&this.x<105)&&this.y>230){
+          this.x = 99
+        }
+        if (this.x === 165) {
+          this.x = 166
+        }
+      }
+    }
+     }
+     var kpolet = 0
+     Kolobinya.canThrow = false
+     Kolobinya.prototype.move = function(dir){
+      if(dir==="right" && this.x!==370 && (this.x!==100||this.y<=230)&&(this.x!==240||this.y<250||tump===true)&&(this.y<460-underground||this.y>800-underground||this.x!==150)){
+        this.x = this.x+1
+        nnn="r"
+      }else if(dir==="left" && this.x!==10 && (this.x!==130||this.y<=230)&(this.x!==280||this.y<250||tump===true)){
+        this.x = this.x-1
+        nnn="l"
+      }else if(dir==="up"&& this.y!==30){
+      if(this.canJump===true){
+      this.jump()
+    }
+  }else if (dir==="throw" && pinkStones>0) {
+    pinkStones--
+    this.canThrow = true
+      }else{
+        if(draw===true){
+        this.draw();
+      }
+     }
+   }
+           var blueStones = 0
+           var blueMoney = 0
+           var pinkStones = 0
+           var pinkMoney = 0
+           var tump = false
+           var mish = true
+     var kolobudududush = new Kolobudududush();
+     kolobudududush.draw();
+     var kolobinya = new Kolobinya();
+     kolobinya.draw();
+      var intervalId = setInterval(function(){
+      ctx.clearRect(0,0,700,500)
+       ctx.fillStyle = "Aqua"
+       ctx.fillRect(0,0-underground,400,400)
+       ctx.fillStyle = "SandyBrown"
+       ctx.fillRect(0,400-underground,400,800)
+       ctx.fillStyle = "Brown"
+      ctx.fillRect(0,400-underground,350,30)
+      ctx.fillRect(0,460-underground,400,840)
+      ctx.fillRect(390,400-underground,10,90)
+      ctx.fillRect(0,400-underground,130,100)
+      ctx.fillStyle = "SandyBrown"
+      ctx.fillRect(130,460-underground,40,340)
+      ctx.clearRect(0,400,500,100)
+      ctx.fillStyle = "purple"
+      ctx.fillRect(170,430-underground,50,30)
+      ctx.clearRect(0,400,500,100)
+       kolobudududush.draw();
+       kolobinya.draw();
+       ctx.fillStyle = "MediumSeaGreen"
+       ctx.fillRect(10,350-underground,40,10)
+       ctx.fillRect(10,270-underground,40,10)
+       ctx.fillRect(80,230-underground,100,10)
+       ctx.fillRect(110,210-underground,70,30)
+       ctx.fillRect(320,380-underground,70,10)
+       ctx.fillRect(325,370-underground,65,10)
+       ctx.fillRect(335,360-underground,55,10)
+       ctx.fillRect(350,350-underground,40,10)
+       if (mish===false&&blueMoney===0&&pinkMoney===0&&(kolobudududush.x===370&&kolobudududush.y===390-underground)) {
+        blueMoney++
+       }
+       if (mish===false&&blueMoney===0&&pinkMoney===0&&(kolobinya.x===370&&kolobinya.y===390-underground)) {
+        pinkMoney++
+       }
+       ctx.fillStyle = "LightSlateGrey"
+       if (tump === false) {
+       ctx.fillRect(260,360-underground,20,30)
+       ctx.fillRect(255,360-underground,30,5)
+     }
+       circle(420,20,10,true)
+       circle(420,80,10,true)
+       ctx.fillStyle = "Gold"
+       circle(420,50,10,true)
+       circle(420,50,10,false)
+        circle(420,110,10,true)
+       circle(420,110,10,false)
+       ctx.font = "1.5em courier";
+       ctx.fillStyle = "RoyalBlue";
+       ctx.textAlign = "Left";
+       ctx.textBaseline = "middle";
+       ctx.fillText(blueStones,440,20)
+       ctx.fillText(blueMoney,440,50)
+       ctx.fillStyle = "DeepPink";
+       ctx.fillText(pinkStones,440,80)
+       ctx.fillText(pinkMoney,440,110)
+       ctx.fillStyle = "Brown"
+       ctx.fillRect(80,310-underground,40,10)
+       ctx.fillRect(120,240-underground,10,150)
+       ctx.fillStyle = "Peru"
+       ctx.fillRect(165,240-underground,2,125)
+       ctx.fillStyle = "LavenderBlush"
+       ctx.fillRect(190,187-underground,70,7)
+       ctx.fillRect(200,180-underground,50,7) 
+       ctx.fillRect(230,134-underground,70,7)
+       ctx.fillRect(240,127-underground,50,7)
+       ctx.fillRect(100,114-underground,80,7)
+       ctx.fillRect(110,107-underground,60,7)
+       ctx.fillRect(10,94-underground,70,7)
+       ctx.fillRect(10,87-underground,60,7)
+       if((kolobudududush.x+20+polet!==350||kolobudududush.y-10!==78-underground)&&(kolobinya.x+20+kpolet!==350||kolobinya.y-10!==78)&&mish===true){
+       ctx.fillStyle = "Red"
+       circle(350,78-underground,10,true)
+       ctx.fillStyle = "White"
+       circle(350,78-underground,8,true)
+       ctx.fillStyle = "Red"
+       circle(350,78-underground,6,true)
+       ctx.fillStyle = "White"
+       circle(350,78-underground,4,true)
+       ctx.fillStyle = "Red"
+       circle(350,78-underground,2,true)
+       }else{
+        mish = false
+      }
+         ctx.fillStyle = "LightSlateGrey"
+       if (kolobudududush.canThrow===true) {
+        if (kolobudududush.nnn==="r"){
+        circle(kolobudududush.x+20+polet,kolobudududush.y-10,5,true)
+        if(polet===300||(kolobudududush.x+20+polet===350&&kolobudududush.y-10===78)||(kolobudududush.x+20+polet>390)){
+          kolobudududush.canThrow = false
+          polet = 0
+        }
+      }else if(kolobudududush.nnn==="l"){
+          circle(kolobudududush.x-polet,kolobudududush.y-10,5,true)
+        if(polet===300||(kolobudududush.x-polet===350&&kolobudududush.y-10===78)||(kolobudududush.x-polet<10)){
+          kolobudududush.canThrow = false
+          polet = 0
+        }
+      }
+        polet++
+       }
+         if (kolobinya.canThrow===true) {
+        if (nnn==="r"||nnn==="not"){
+        circle(kolobinya.x+20+kpolet,kolobinya.y-10,5,true)
+        if(kpolet===300||(kolobinya.x+20+kpolet===350&&kolobinya.y-10===78)||(kolobinya.x+20+kpolet>390)){
+          kolobinya.canThrow = false
+          kpolet = 0
+        }
+      }else if(nnn==="l"){
+          circle(kolobinya.x-kpolet,kolobinya.y-10,5,true)
+        if(kpolet===300||(kolobinya.x-kpolet===350&&kolobinya.y-10===78)||(kolobinya.x-kpolet<10)){
+          kolobinya.canThrow = false
+          kpolet = 0
+        }
+      }
+        kpolet++
+       }
+      drawFloor("MediumSeaGreen");
+      drawLeft("MediumSeaGreen");
+      drawRight("MediumSeaGreen");
+      if (kolobudududush.y<390-underground||((blueMoney>0||pinkMoney>0)&&kolobudududush.x>350&&kolobinya.x>350)) {
+        kolobudududush.y++
+        kolobudududush.canJump = false
+      if (kolobudududush.y+underground>390) {
+          kolobudududush.y=390
+          underground++
+        }
+        if((kolobudududush.y===350-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===310-underground&&(kolobudududush.x>70&&kolobudududush.x<115))||(kolobudududush.y===270-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===230-underground&&(kolobudududush.x>70&&kolobudududush.x<170))||(kolobudududush.y===185-underground&&(kolobudududush.x>190&&kolobudududush.x<240))||(kolobudududush.y===129-underground&&(kolobudududush.x>230&&kolobudududush.x<280))||(kolobudududush.y===109-underground&&(kolobudududush.x>100&&kolobudududush.x<160))||(kolobudududush.y===89-underground&&(kolobudududush.x>0&&kolobudududush.x<70))){
+          kolobudududush.y--
+          kolobudududush.canJump = true
+        }
+        if(kolobudududush.y===460-underground&&kolobudududush.x>170&&kolobudududush.x<390){
+          underground--
+          canJump = true
+        }
+        if (kolobudududush.y+underground>400&&kolobudududush.y+underground<799&&kolobudududush.x>130&&kolobudududush.x<170) {
+        underground++
+        kolobudududush.y--
+        kolobudududush.canJump = false
+        mish=false
+        }
+        if (kolobudududush.x>140&&kolobudududush.x<170&&kolobudududush.y>230-underground) {
+          kolobudududush.y--
+          kolobudududush.y--
+        }
+        if (kolobudududush.y===360-underground&&(kolobudududush.x>250&&kolobudududush.x<270)&&tump===false) {
+          tump = true
+          blueStones++
+        }
+      }else{
+        kolobudududush.canJump = true
+      }
+         if (kolobinya.y<390||((blueMoney>0||pinkMoney>0)&&kolobudududush.x>350&&kolobinya.x>350)&&kolobudududush.y<799-underground) {
+        kolobinya.y++
+        kolobinya.canJump = false
+        if (kolobinya.y+underground>390) {
+        kolobinya.y=390
+        underground++
+        }
+        if((kolobinya.y===350-underground&&(kolobinya.x>5&&kolobinya.x<45))||(kolobinya.y===310-underground&&(kolobinya.x>70&&kolobinya.x<115))||(kolobinya.y===270-underground&&(kolobinya.x>5&&kolobinya.x<45))||(kolobinya.y===230-underground&&(kolobinya.x>70&&kolobinya.x<170))||(kolobinya.y===185-underground&&(kolobinya.x>190&&kolobinya.x<240))||(kolobinya.y===129-underground&&(kolobinya.x>230&&kolobinya.x<280))||(kolobinya.y===109-underground&&(kolobinya.x>100&&kolobinya.x<160))||(kolobinya.y===89-underground&&(kolobinya.x>0&&kolobinya.x<70))){
+          kolobinya.y--
+          kolobinya.canJump = true
+        }
+        if(kolobinya.y===460-underground&&kolobinya.x>170&&kolobinya.x<390){
+          underground--
+          canJump = true
+        }
+        if (kolobinya.y+underground>400&&kolobinya.y+underground<799&&kolobinya.x>130&&kolobinya.x<170) {
+          underground++
+          kolobinya.y--
+          kolobinya.canJump = false
+          mish = true
+        }
+        if (kolobinya.x>140&&kolobinya.x<170&&kolobinya.y>230-underground) {
+          kolobinya.y--
+          kolobinya.y--
+        }
+        if (kolobinya.y===360-underground&&(kolobinya.x>250&&kolobinya.x<270)&&tump===false) {
+          tump = true
+          pinkStones++
+        }
+      }else{
+        kolobinya.canJump = true
+      }
+         ctx.fillStyle = "BlAcK";
+      ctx.font = "1em courier";
+      if (underground>=49){
+      ctx.fillText("//...Зайдите в портал!...//",10,420)
+      }else if (blueMoney>0||pinkMoney>0){
+        ctx.fillText("//...Вы прошли обучение! Теперь вам вместе надо...//",10,420)
+        ctx.fillText("//...Прыгнуть в кусты, чтобы войти в тоннель...//",10,440)
+      }else if (mish===false) {
+        ctx.fillText("//...В кустах лежит сюрприз!...//",10,420)
+      }else if(mish===true&&tump===true){
+        ctx.fillText("//...Чтобы забраться по верёвке, прыгните к ней...//",10,420)
+        ctx.fillText("//...Доберитесь до верхнего облака и киньте камень в мишень...//",10,440)
+        ctx.fillText("//...(Нажмите стрелочку вниз или S)...//",10,460)
+      }else if(kolobudududush.x>130||kolobinya.x>130){
+        ctx.fillText("//...Сломайте пьедестал, чтобы заработать камни...//",10,440)
+        ctx.fillText("//...Некоторые объекты не имеют текстуры...//",10,420)
+      }else{
+      ctx.fillText("//...Сначала пройдите несложный паркур...//",10,420)
+}
+if ((kolobudududush.x<200&&kolobudududush.y>430-underground)||(kolobinya.x<200&&kolobinya.y>430-underground)){
+  clearInterval(intervalId);
+  ctx.fillRect(0,0,400,400)
+  draw = false
+  ctx.fillStyle = "DeepPink"
+      circle(50,50,20,true)
+     circle(50,50,20,false)
+    ctx.fillStyle = "BlAcK"
+  circle(40,50,6,true)
+circle(60,50,6,true)
+ctx.fillStyle = "RoyalBlue"
+  circle(100,50,20,true)
+     circle(100,50,20,false)
+    ctx.fillStyle = "BlAcK"
+  circle(90,50,6,true)
+circle(110,50,6,true)
+ctx.fillStyle = "Lime"
+ctx.fillText("Lv. 0 -> Lv.1",30,10)
+ctx.fillText("Новая механика: здоровье",30,100)
+ctx.fillText("Health++",30,120)
+ctx.fillText("Место возрождения: /сибирь/",30,140)
+var health = 3
+var spawn = 10
+kolobudududush.x = 10
+kolobinya.x = 40
+underground = 0
+kolobudududush.y = 390
+kolobinya.y = 390
+setTimeout(st,7000)
+}
+      }, 5);
+var intervalId2 = setInterval(function(){
+  if(start===true){
+    ctx.clearRect(0,0,400,400)
+      drawFloor("MediumSeaGreen");
+      drawLeft("MediumSeaGreen");
+      drawRight("MediumSeaGreen");
+      kolobudududush.draw()
+     kolobinya.draw()
+      draw = true
+  }
+},30);
+      var directions = {
+      37: "left",
+      38: "up",
+      39: "right",
+      40: "throw"
+      };
+      var directions2 = {
+      65: "left",
+      87: "up",
+      68: "right",
+      83: "throw"
+      };
+      $("body").keydown(function(event){
+      var newDirection = directions[event.keyCode];
+      kolobudududush.move(newDirection)
+      kolobudududush.move(newDirection)
+      kolobudududush.move(newDirection)
+      kolobudududush.move(newDirection)
+      kolobudududush.move(newDirection)
+      });
+        $("body").keydown(function(event){
+      var newDirection = directions2[event.keyCode];
+      kolobinya.move(newDirection)
+      kolobinya.move(newDirection)
+      kolobinya.move(newDirection)
+      kolobinya.move(newDirection)
+      kolobinya.move(newDirection)
+      });
+        function runOnKeys(func, ...codes) {
+      let pressed = new Set();
+
+      document.addEventListener('keydown', function(event) {
+        pressed.add(event.code);
+
+        for (let code of codes) {
+          if (!pressed.has(code)) {
+            return;
+          }
+        }
+        pressed.clear();
+
+        func();
+      });
+
+      document.addEventListener('keyup', function(event) {
+        pressed.delete(event.code);
+      });
+
+    }
+
+    runOnKeys(
+      () => nnn = "not",
+      "KeyQ",
+      "KeyE"
+    );
+         </script>
+  
+  </body></html>
