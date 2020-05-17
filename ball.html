@@ -5,13 +5,16 @@
     </head>
     <body>
       <canvas id = "canvas" width="700" height="500"></canvas>
-      <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+      <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
       <script>
     var canvas = document.getElementById("canvas");
       var ctx = canvas.getContext("2d");
         var w = 400
       var h = 400
-
+      var right = false
+      var left = false
+      var jump = false
+      var throwing = false
       var underground = 0
      var inRight = 0
       var draw = true
@@ -439,10 +442,11 @@
       }else{
         j3=0
       }
-      kolobudududush.canJump = true
+      kolobudududush.canJump = false
       if(jjj>76){
       jjj=0
       kolobudududush.isJump = false
+      kolobudududush.canJump = false
       }
       }
       if (players===2) {
@@ -547,20 +551,10 @@
           kolobudududush.y=390
           underground++
         }
-      }
-      }else{
-           if (kolobudududush.y<390-underground||((blueMoney>0||pinkMoney>0)&&kolobudududush.x>350)) {
-        kolobudududush.y++
-        kolobudududush.canJump = false
-      if (kolobudududush.y+underground>390) {
-          kolobudududush.y=390
-          underground++
-        }
-      }
-    }
-
-        if((kolobudududush.y===350-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===310-underground&&(kolobudududush.x>70&&kolobudududush.x<115))||(kolobudududush.y===270-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===230-underground&&(kolobudududush.x>70&&kolobudududush.x<170))||(kolobudududush.y===185-underground&&(kolobudududush.x>190&&kolobudududush.x<240))||(kolobudududush.y===129-underground&&(kolobudududush.x>230&&kolobudududush.x<280))||(kolobudududush.y===109-underground&&(kolobudududush.x>100&&kolobudududush.x<160))||(kolobudududush.y===89-underground&&(kolobudududush.x>0&&kolobudududush.x<70))){
+         if((kolobudududush.y===350-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===310-underground&&(kolobudududush.x>70&&kolobudududush.x<115))||(kolobudududush.y===270-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===230-underground&&(kolobudududush.x>70&&kolobudududush.x<170))||(kolobudududush.y===185-underground&&(kolobudududush.x>190&&kolobudududush.x<240))||(kolobudududush.y===129-underground&&(kolobudududush.x>230&&kolobudududush.x<280))||(kolobudududush.y===109-underground&&(kolobudududush.x>100&&kolobudududush.x<160))||(kolobudududush.y===89-underground&&(kolobudududush.x>0&&kolobudududush.x<70))||kolobudududush.y===390){
+          if (kolobudududush.y!==390){
           kolobudududush.y--
+        }
           kolobudududush.canJump = true
         }
         if(kolobudududush.y===460-underground&&kolobudududush.x>170&&kolobudududush.x<390){
@@ -582,9 +576,46 @@
         if (kolobudududush.y===360-underground&&(kolobudududush.x>250&&kolobudududush.x<270)&&tump===false) {
           tump = true
           blueStones++
-      }else{
-        kolobudududush.canJump = true
       }
+      }
+      }else{
+           if (kolobudududush.y<390-underground||((blueMoney>0||pinkMoney>0)&&kolobudududush.x>350)) {
+        kolobudududush.y++
+        kolobudududush.canJump = false
+     if (kolobudududush.y+underground>390) {
+         kolobudududush.y=390
+        underground++
+       }
+       if((kolobudududush.y===350-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===310-underground&&(kolobudududush.x>70&&kolobudududush.x<115))||(kolobudududush.y===270-underground&&(kolobudududush.x>5&&kolobudududush.x<45))||(kolobudududush.y===230-underground&&(kolobudududush.x>70&&kolobudududush.x<170))||(kolobudududush.y===185-underground&&(kolobudududush.x>190&&kolobudududush.x<240))||(kolobudududush.y===129-underground&&(kolobudududush.x>230&&kolobudududush.x<280))||(kolobudududush.y===109-underground&&(kolobudududush.x>100&&kolobudududush.x<160))||(kolobudududush.y===89-underground&&(kolobudududush.x>0&&kolobudududush.x<70))||kolobudududush.y===390){
+                if (kolobudududush.y!==390){
+          kolobudududush.y--
+        }
+          kolobudududush.canJump = true
+        }
+        if(kolobudududush.y===460-underground&&kolobudududush.x>170&&kolobudududush.x<390){
+          underground--
+          canJump = false
+        }
+        if (kolobudududush.y+underground>400&&kolobudududush.y+underground<799&&kolobudududush.x>130&&kolobudududush.x<170) {
+        underground++
+        kolobudududush.y--
+        kolobudududush.canJump = false
+        mish=false
+        }
+        if (kolobudududush.x>140&&kolobudududush.x<170&&kolobudududush.y>229-underground) {
+          kolobudududush.y--
+          kolobudududush.y--
+          jjj=0
+          kolobudududush.isJump = false
+        }
+        if (kolobudududush.y===360-underground&&(kolobudududush.x>250&&kolobudududush.x<270)&&tump===false) {
+          tump = true
+          blueStones++
+      }
+     }
+    }
+
+       
       if (players===2) {
          if (kolobinya.y<390||((blueMoney>0||pinkMoney>0)&&kolobudududush.x>350&&kolobinya.x>350)&&kolobudududush.y<799-underground) {
         kolobinya.y++
@@ -885,10 +916,10 @@ var intervalId2 = setInterval(function(){
          if (players===2){
          mushDisKol2 = getDistance(kolobinya,mushroom)
        }
-         if (mushDisKol1===cir1+1) {
+         if (mushDisKol1<cir1+1&&mushDisKol1>cir1) {
           health--
          }
-        if (mushDisKol2===cir1+1) {
+        if (mushDisKol2<cir1+1&&mushDisKol2>cir1) {
           khealth--
          }
             }
@@ -902,13 +933,13 @@ var intervalId2 = setInterval(function(){
        if (kolobudududush.canThrow===true) {
         if (kolobudududush.nnn==="r"){
         circle(kolobudududush.x+20+polet,kolobudududush.y-10,5,true)
-        if(polet===300||(kolobudududush.x+20+polet===350&&kolobudududush.y-10===78)||(kolobudududush.x+20+polet>390)){
+        if(polet===400||(kolobudududush.x+20+polet===350&&kolobudududush.y-10===78)||(kolobudududush.x+20+polet>390)){
           kolobudududush.canThrow = false
           polet = 0
         }
       }else if(kolobudududush.nnn==="l"){
           circle(kolobudududush.x-polet,kolobudududush.y-10,5,true)
-        if(polet===300||(kolobudududush.x-polet===350&&kolobudududush.y-10===78)||(kolobudududush.x-polet<10)){
+        if(polet===400||(kolobudududush.x-polet===350&&kolobudududush.y-10===78)||(kolobudududush.x-polet<10)){
           kolobudududush.canThrow = false
           polet = 0
         }
@@ -919,13 +950,13 @@ var intervalId2 = setInterval(function(){
          if (kolobinya.canThrow===true) {
         if (nnn==="r"||nnn==="not"){
         circle(kolobinya.x+20+kpolet,kolobinya.y-10,5,true)
-        if(kpolet===300||(kolobinya.x+20+kpolet===350&&kolobinya.y-10===78)||(kolobinya.x+20+kpolet>390)){
+        if(kpolet===400||(kolobinya.x+20+kpolet===350&&kolobinya.y-10===78)||(kolobinya.x+20+kpolet>390)){
           kolobinya.canThrow = false
           kpolet = 0
         }
       }else if(nnn==="l"){
           circle(kolobinya.x-kpolet,kolobinya.y-10,5,true)
-        if(kpolet===300||(kolobinya.x-kpolet===350&&kolobinya.y-10===78)||(kolobinya.x-kpolet<10)){
+        if(kpolet===400||(kolobinya.x-kpolet===350&&kolobinya.y-10===78)||(kolobinya.x-kpolet<10)){
           kolobinya.canThrow = false
           kpolet = 0
         }
@@ -948,15 +979,22 @@ var intervalId2 = setInterval(function(){
       };
       $("body").keydown(function(event){
       var newDirection = directions[event.keyCode];
-      newDir = newDirection
-      if (newDirection==="right"||newDirection==="left") {
+      if (newDirection==="right"||newDirection==="left"||newDirection==="up") {
+      if(newDirection==="left"){
+        left = true
+      }else if(newDirection==="right"){
+        right = true
+      }else{
+        jump = true
+      }
       kolobudududush.move(newDirection)
       kolobudududush.move(newDirection)
       kolobudududush.move(newDirection)
       kolobudududush.move(newDirection)
       kolobudududush.move(newDirection)
-    }else{
-      kolobudududush.move(newDirection) 
+    }else if(newDirection="throw"){
+      kolobudududush.move(newDirection)
+      throwing = true 
     }
       });
       if (players===2) {
@@ -1003,4 +1041,3 @@ var intervalId2 = setInterval(function(){
          </script>
   
   </body></html>
-
